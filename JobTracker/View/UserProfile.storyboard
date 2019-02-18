@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kqg-OT-xyr">
+    <device id="retina6_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Profile-->
+        <scene sceneID="pFG-dB-Jd5">
+            <objects>
+                <viewController id="kqg-OT-xyr" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OKY-bz-Ktg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="raV-yv-UzT">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="vyM-II-0cH"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="raV-yv-UzT" firstAttribute="centerX" secondItem="b0o-rf-yK7" secondAttribute="centerX" id="6fE-TU-0VD"/>
+                            <constraint firstItem="b0o-rf-yK7" firstAttribute="top" secondItem="raV-yv-UzT" secondAttribute="bottom" constant="-44" id="9bR-PR-yL4"/>
+                            <constraint firstItem="raV-yv-UzT" firstAttribute="leading" secondItem="b0o-rf-yK7" secondAttribute="leading" id="azP-jf-OYb"/>
+                            <constraint firstItem="raV-yv-UzT" firstAttribute="trailing" secondItem="b0o-rf-yK7" secondAttribute="trailing" id="dEj-YP-Ov8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="b0o-rf-yK7"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Profile" image="UserIcon" landscapeImage="UserIcon" id="zjB-C8-2nL"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="olw-rD-KyK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-462" y="205"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="UserIcon" width="24" height="24"/>
+    </resources>
+</document>
