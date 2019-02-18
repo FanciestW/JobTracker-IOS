@@ -21,7 +21,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="raV-yv-UzT">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
-                                    <navigationItem title="Title" id="vyM-II-0cH"/>
+                                    <navigationItem title="User Profile" id="vyM-II-0cH"/>
                                 </items>
                             </navigationBar>
                         </subviews>

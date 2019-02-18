@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0A6-a0-cTS">
     <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -17,7 +17,21 @@
                     <view key="view" contentMode="scaleToFill" id="UwM-7J-Vd3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="heU-MU-2TT">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Job Search" id="QfF-he-eN0"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="al7-bk-gU6" firstAttribute="top" secondItem="heU-MU-2TT" secondAttribute="bottom" constant="-44" id="7gK-5f-9IU"/>
+                            <constraint firstItem="heU-MU-2TT" firstAttribute="trailing" secondItem="al7-bk-gU6" secondAttribute="trailing" id="g3u-ZL-UPq"/>
+                            <constraint firstItem="heU-MU-2TT" firstAttribute="leading" secondItem="al7-bk-gU6" secondAttribute="leading" id="j5Y-1f-LGs"/>
+                            <constraint firstItem="heU-MU-2TT" firstAttribute="centerX" secondItem="al7-bk-gU6" secondAttribute="centerX" id="oCn-ug-XAD"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="al7-bk-gU6"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Job Search" image="SearchIcon" landscapeImage="SearchIcon" id="CVV-xS-H2K"/>

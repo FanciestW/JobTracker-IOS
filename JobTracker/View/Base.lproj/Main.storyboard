@@ -50,15 +50,15 @@
             </objects>
             <point key="canvasLocation" x="737" y="110"/>
         </scene>
-        <!--Storyboard Reference-->
+        <!--JobSearch-->
         <scene sceneID="V6k-eH-bSm">
             <objects>
-                <viewControllerPlaceholder id="Jca-0B-SFk" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="JobSearch" id="Jca-0B-SFk" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Job Search" image="SearchIcon" landscapeImage="SearchIcon" id="3pV-0h-N36"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BEt-Wj-ncC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="153"/>
+            <point key="canvasLocation" x="701" y="153"/>
         </scene>
         <!--UserProfile-->
         <scene sceneID="dR9-hL-xM1">
