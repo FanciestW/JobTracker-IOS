@@ -12,6 +12,7 @@
 		3DAF78DA2218B06C00AFF52A /* AddJobApplication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DAF78D92218B06C00AFF52A /* AddJobApplication.storyboard */; };
 		3DAF78DC2218B52B00AFF52A /* AppliedList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DAF78DB2218B52B00AFF52A /* AppliedList.storyboard */; };
 		3DAF78DE2218BA1100AFF52A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAF78DD2218BA1100AFF52A /* ViewController.swift */; };
+		3DBAE3FA22275F830052F89F /* JobApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE3F922275F830052F89F /* JobApplication.swift */; };
 		3DEDA7152217A3E00084BB3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEDA7142217A3E00084BB3E /* AppDelegate.swift */; };
 		3DEDA71A2217A3E00084BB3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DEDA7182217A3E00084BB3E /* Main.storyboard */; };
 		3DEDA71D2217A3E00084BB3E /* JobTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DEDA71B2217A3E00084BB3E /* JobTracker.xcdatamodeld */; };
@@ -27,6 +28,7 @@
 		3DAF78D92218B06C00AFF52A /* AddJobApplication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddJobApplication.storyboard; sourceTree = "<group>"; };
 		3DAF78DB2218B52B00AFF52A /* AppliedList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AppliedList.storyboard; sourceTree = "<group>"; };
 		3DAF78DD2218BA1100AFF52A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3DBAE3F922275F830052F89F /* JobApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobApplication.swift; sourceTree = "<group>"; };
 		3DEDA7112217A3E00084BB3E /* JobTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DEDA7142217A3E00084BB3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DEDA7192217A3E00084BB3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,6 +70,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		3DBAE3F822275E290052F89F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3DBAE3F922275F830052F89F /* JobApplication.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		3DEDA7082217A3DF0084BB3E = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +99,7 @@
 		3DEDA7132217A3E00084BB3E /* JobTracker */ = {
 			isa = PBXGroup;
 			children = (
+				3DBAE3F822275E290052F89F /* Model */,
 				3DEDA7142217A3E00084BB3E /* AppDelegate.swift */,
 				3DAF78DF2218BA1D00AFF52A /* Controller */,
 				3DEDA72A2217A5980084BB3E /* View */,
@@ -119,7 +130,6 @@
 				947F8F5B593B74299228F053 /* Pods-JobTracker.debug.xcconfig */,
 				78685140222AEC16C715B0B5 /* Pods-JobTracker.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -252,6 +262,7 @@
 			files = (
 				3DAF78DE2218BA1100AFF52A /* ViewController.swift in Sources */,
 				3DEDA71D2217A3E00084BB3E /* JobTracker.xcdatamodeld in Sources */,
+				3DBAE3FA22275F830052F89F /* JobApplication.swift in Sources */,
 				3DEDA7152217A3E00084BB3E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
