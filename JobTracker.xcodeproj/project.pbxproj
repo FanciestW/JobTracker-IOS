@@ -13,6 +13,7 @@
 		3DAF78DC2218B52B00AFF52A /* AppliedList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DAF78DB2218B52B00AFF52A /* AppliedList.storyboard */; };
 		3DAF78DE2218BA1100AFF52A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAF78DD2218BA1100AFF52A /* ViewController.swift */; };
 		3DBAE3FA22275F830052F89F /* JobApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE3F922275F830052F89F /* JobApplication.swift */; };
+		3DBAE3FC2227935C0052F89F /* AddJobApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE3FB2227935C0052F89F /* AddJobApplicationViewController.swift */; };
 		3DEDA7152217A3E00084BB3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEDA7142217A3E00084BB3E /* AppDelegate.swift */; };
 		3DEDA71A2217A3E00084BB3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DEDA7182217A3E00084BB3E /* Main.storyboard */; };
 		3DEDA71D2217A3E00084BB3E /* JobTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DEDA71B2217A3E00084BB3E /* JobTracker.xcdatamodeld */; };
@@ -29,6 +30,7 @@
 		3DAF78DB2218B52B00AFF52A /* AppliedList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AppliedList.storyboard; sourceTree = "<group>"; };
 		3DAF78DD2218BA1100AFF52A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3DBAE3F922275F830052F89F /* JobApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobApplication.swift; sourceTree = "<group>"; };
+		3DBAE3FB2227935C0052F89F /* AddJobApplicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJobApplicationViewController.swift; sourceTree = "<group>"; };
 		3DEDA7112217A3E00084BB3E /* JobTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DEDA7142217A3E00084BB3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DEDA7192217A3E00084BB3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				3DAF78DD2218BA1100AFF52A /* ViewController.swift */,
+				3DBAE3FB2227935C0052F89F /* AddJobApplicationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				3DEDA71D2217A3E00084BB3E /* JobTracker.xcdatamodeld in Sources */,
 				3DBAE3FA22275F830052F89F /* JobApplication.swift in Sources */,
 				3DEDA7152217A3E00084BB3E /* AppDelegate.swift in Sources */,
+				3DBAE3FC2227935C0052F89F /* AddJobApplicationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
