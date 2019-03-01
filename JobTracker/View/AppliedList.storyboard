@@ -13,7 +13,7 @@
         <!--Applied-->
         <scene sceneID="NEy-9g-Ji0">
             <objects>
-                <viewController id="KBA-1h-mxP" sceneMemberID="viewController">
+                <viewController id="KBA-1h-mxP" customClass="AppliedListViewController" customModule="JobTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oi7-CI-dWL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

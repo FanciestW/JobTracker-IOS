@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class UserProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if Auth.auth().currentUser != nil {
+//            loadProfile()
+        } else {
+//            showSignInUpView()
+        }
         // Do any additional setup after loading the view.
     }
     

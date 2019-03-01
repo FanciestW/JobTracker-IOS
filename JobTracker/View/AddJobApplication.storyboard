@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -90,7 +91,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.40448427640000001" blue="0.32174021730000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="SecondaryCyan"/>
                         <constraints>
                             <constraint firstItem="5TE-bD-81t" firstAttribute="leading" secondItem="yHv-NS-e2e" secondAttribute="leading" constant="20" id="2Vd-Bh-9iO"/>
                             <constraint firstItem="gj3-1F-5ZD" firstAttribute="top" secondItem="S2t-yr-5lh" secondAttribute="bottom" constant="75" id="3Xx-tl-3cK"/>
@@ -125,6 +126,12 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="New Job" image="AddIcon" landscapeImage="AddIcon" id="6MS-OK-GXo"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="appliedDateTextField" destination="YLn-xM-t5V" id="dEY-Le-nZ5"/>
+                        <outlet property="companyTextField" destination="2vz-Vw-qcG" id="cMc-om-u6v"/>
+                        <outlet property="jobTitleTextField" destination="gj3-1F-5ZD" id="A9x-ck-qpe"/>
+                        <outlet property="jobTypeTextField" destination="uv2-nl-I3g" id="bgB-FN-AJa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i6P-ht-i5k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -133,5 +140,8 @@
     </scenes>
     <resources>
         <image name="AddIcon" width="21" height="21"/>
+        <namedColor name="SecondaryCyan">
+            <color red="0.62745098039215685" green="0.88627450980392153" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
