@@ -11,6 +11,7 @@
 		3D15839B2228A2A900430303 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D15839A2228A2A900430303 /* UserProfileViewController.swift */; };
 		3D1583A42228EB7200430303 /* AppliedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1583A32228EB7200430303 /* AppliedListViewController.swift */; };
 		3D1583A62228EBEB00430303 /* JobSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1583A52228EBEB00430303 /* JobSearchViewController.swift */; };
+		3D1583AA2228FE7000430303 /* BlueGradientBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1583A92228FE7000430303 /* BlueGradientBackground.swift */; };
 		3D4951B5221A589C00EAB7DA /* JobSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4951B4221A589C00EAB7DA /* JobSearch.storyboard */; };
 		3DAF78DA2218B06C00AFF52A /* AddJobApplication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DAF78D92218B06C00AFF52A /* AddJobApplication.storyboard */; };
 		3DAF78DC2218B52B00AFF52A /* AppliedList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DAF78DB2218B52B00AFF52A /* AppliedList.storyboard */; };
@@ -31,6 +32,7 @@
 		3D15839A2228A2A900430303 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		3D1583A32228EB7200430303 /* AppliedListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppliedListViewController.swift; sourceTree = "<group>"; };
 		3D1583A52228EBEB00430303 /* JobSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobSearchViewController.swift; sourceTree = "<group>"; };
+		3D1583A92228FE7000430303 /* BlueGradientBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueGradientBackground.swift; sourceTree = "<group>"; };
 		3D4951B4221A589C00EAB7DA /* JobSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JobSearch.storyboard; sourceTree = "<group>"; };
 		3DAF78D92218B06C00AFF52A /* AddJobApplication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddJobApplication.storyboard; sourceTree = "<group>"; };
 		3DAF78DB2218B52B00AFF52A /* AppliedList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AppliedList.storyboard; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				3DAF78D92218B06C00AFF52A /* AddJobApplication.storyboard */,
 				3DAF78DB2218B52B00AFF52A /* AppliedList.storyboard */,
 				3D4951B4221A589C00EAB7DA /* JobSearch.storyboard */,
+				3D1583A92228FE7000430303 /* BlueGradientBackground.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 			files = (
 				3D1583A62228EBEB00430303 /* JobSearchViewController.swift in Sources */,
 				3D15839B2228A2A900430303 /* UserProfileViewController.swift in Sources */,
+				3D1583AA2228FE7000430303 /* BlueGradientBackground.swift in Sources */,
 				3DEDA71D2217A3E00084BB3E /* JobTracker.xcdatamodeld in Sources */,
 				3DBAE3FA22275F830052F89F /* JobApplication.swift in Sources */,
 				3DEDA7152217A3E00084BB3E /* AppDelegate.swift in Sources */,

@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -15,7 +14,7 @@
         <scene sceneID="qDH-yX-UNN">
             <objects>
                 <viewController id="ghA-ab-PUF" customClass="AddJobApplicationViewController" customModule="JobTracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="j8a-6F-SHr">
+                    <view key="view" contentMode="scaleToFill" id="j8a-6F-SHr" customClass="BlueGradientBackground" customModule="JobTracker" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -91,7 +90,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" name="SecondaryCyan"/>
+                        <color key="backgroundColor" name="NeonCarrot"/>
                         <constraints>
                             <constraint firstItem="5TE-bD-81t" firstAttribute="leading" secondItem="yHv-NS-e2e" secondAttribute="leading" constant="20" id="2Vd-Bh-9iO"/>
                             <constraint firstItem="gj3-1F-5ZD" firstAttribute="top" secondItem="S2t-yr-5lh" secondAttribute="bottom" constant="75" id="3Xx-tl-3cK"/>
@@ -123,6 +122,14 @@
                             <constraint firstItem="S2t-yr-5lh" firstAttribute="leading" secondItem="yHv-NS-e2e" secondAttribute="leading" id="yt5-Xa-OJE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yHv-NS-e2e"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="gradientColor1">
+                                <color key="value" name="BlueGradientBegin"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="gradientColor2">
+                                <color key="value" name="BlueGradientEnd"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <tabBarItem key="tabBarItem" title="New Job" image="AddIcon" landscapeImage="AddIcon" id="6MS-OK-GXo"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -140,8 +147,14 @@
     </scenes>
     <resources>
         <image name="AddIcon" width="21" height="21"/>
-        <namedColor name="SecondaryCyan">
-            <color red="0.62745098039215685" green="0.88627450980392153" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="BlueGradientBegin">
+            <color red="0.50588235294117645" green="0.87450980392156863" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BlueGradientEnd">
+            <color red="0.29803921568627451" green="0.32941176470588235" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="NeonCarrot">
+            <color red="1" green="0.6470588235294118" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
