@@ -1,53 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kqg-OT-xyr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wQP-n5-xhV">
     <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Profile-->
+        <!--UserProfileCheck-->
         <scene sceneID="pFG-dB-Jd5">
             <objects>
-                <viewController id="kqg-OT-xyr" customClass="UserProfileViewController" customModule="JobTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="UserProfileCheck" id="kqg-OT-xyr" customClass="UserCheckViewController" customModule="JobTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OKY-bz-Ktg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="raV-yv-UzT">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <items>
-                                    <navigationItem title="User Profile" id="vyM-II-0cH"/>
-                                </items>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="barPosition">
-                                        <integer key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </navigationBar>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="raV-yv-UzT" firstAttribute="centerX" secondItem="b0o-rf-yK7" secondAttribute="centerX" id="6fE-TU-0VD"/>
-                            <constraint firstItem="b0o-rf-yK7" firstAttribute="top" secondItem="raV-yv-UzT" secondAttribute="bottom" constant="-44" id="9bR-PR-yL4"/>
-                            <constraint firstItem="raV-yv-UzT" firstAttribute="leading" secondItem="b0o-rf-yK7" secondAttribute="leading" id="azP-jf-OYb"/>
-                            <constraint firstItem="raV-yv-UzT" firstAttribute="trailing" secondItem="b0o-rf-yK7" secondAttribute="trailing" id="dEj-YP-Ov8"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="b0o-rf-yK7"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="UserIcon" landscapeImage="UserIcon" id="zjB-C8-2nL"/>
+                    <navigationItem key="navigationItem" title="User Profile" id="gWU-69-FDA"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="olw-rD-KyK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-462" y="205"/>
+            <point key="canvasLocation" x="447.82608695652175" y="204.91071428571428"/>
+        </scene>
+        <!--UserProfile-->
+        <scene sceneID="Bcj-XX-Urw">
+            <objects>
+                <viewController storyboardIdentifier="UserProfileView" title="UserProfile" id="xMo-QG-LKp" customClass="UserProfileViewController" customModule="JobTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1d6-mo-5cI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="yh8-eF-Nhe"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fdA-UY-mvK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1645" y="472"/>
+        </scene>
+        <!--SignInUp-->
+        <scene sceneID="kbf-Kq-Epc">
+            <objects>
+                <viewController storyboardIdentifier="SignInUpView" title="SignInUp" id="iZd-2L-NKf" customClass="UserSignInUpViewController" customModule="JobTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="k8f-1F-SSG" customClass="BlueGradientBackground" customModule="JobTracker" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppImage" translatesAutoresizingMaskIntoConstraints="NO" id="6b3-aL-YAU">
+                                <rect key="frame" x="107" y="94" width="200" height="200"/>
+                                <color key="backgroundColor" name="NeonCarrot"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="LNN-SA-9E4"/>
+                                    <constraint firstAttribute="height" constant="200" id="zY2-3W-588"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" name="BlueGradientEnd"/>
+                        <constraints>
+                            <constraint firstItem="6b3-aL-YAU" firstAttribute="centerX" secondItem="k8f-1F-SSG" secondAttribute="centerX" id="3VA-Si-sh5"/>
+                            <constraint firstItem="6b3-aL-YAU" firstAttribute="top" secondItem="T9m-7T-Yh1" secondAttribute="top" constant="50" id="ywt-px-MZT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="T9m-7T-Yh1"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="gradientColor1">
+                                <color key="value" name="BlueGradientBegin"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="gradientColor2">
+                                <color key="value" name="BlueGradientEnd"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <connections>
+                        <outlet property="LogoImage" destination="6b3-aL-YAU" id="wla-4P-he7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hyB-kf-uwx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1647.826086956522" y="-204.24107142857142"/>
+        </scene>
+        <!--UserProfileNav-->
+        <scene sceneID="G71-bU-xsV">
+            <objects>
+                <navigationController title="UserProfileNav" automaticallyAdjustsScrollViewInsets="NO" id="wQP-n5-xhV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" image="UserIcon" landscapeImage="UserIcon" id="zjB-C8-2nL"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gif-8J-g11">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kqg-OT-xyr" kind="relationship" relationship="rootViewController" id="5uz-an-PAP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I5C-2Q-Zdl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-462.31884057971018" y="204.91071428571428"/>
         </scene>
     </scenes>
     <resources>
+        <image name="AppImage" width="180" height="180"/>
         <image name="UserIcon" width="24" height="24"/>
+        <namedColor name="BlueGradientBegin">
+            <color red="0.50588235294117645" green="0.87450980392156863" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BlueGradientEnd">
+            <color red="0.29803921568627451" green="0.32941176470588235" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="NeonCarrot">
+            <color red="1" green="0.6470588235294118" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

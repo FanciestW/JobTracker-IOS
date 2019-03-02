@@ -9,15 +9,39 @@
 import UIKit
 import FirebaseAuth
 
+class UserCheckViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if Auth.auth().currentUser != nil {
+            print("User logged in")
+            showUserProfileView()
+        } else {
+            print("User not logged in")
+            showSignInUpView()
+        }
+    }
+    
+    func showUserProfileView() {
+        let userProfileViewController = storyboard?.instantiateViewController(withIdentifier: "UserProfileView") as! UserProfileViewController
+        DispatchQueue.main.async {
+            self.present(userProfileViewController, animated: true, completion: nil)
+        }
+    }
+    
+    func showSignInUpView() {
+        let signInUpViewController = storyboard?.instantiateViewController(withIdentifier: "SignInUpView") as! UserSignInUpViewController
+        DispatchQueue.main.async {
+            self.present(signInUpViewController, animated: true, completion: nil)
+        }
+    }
+    
+}
+
 class UserProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if Auth.auth().currentUser != nil {
-//            loadProfile()
-        } else {
-//            showSignInUpView()
-        }
         // Do any additional setup after loading the view.
     }
     
