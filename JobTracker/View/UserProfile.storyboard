@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wQP-n5-xhV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iZd-2L-NKf">
     <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,23 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--UserProfileCheck-->
-        <scene sceneID="pFG-dB-Jd5">
-            <objects>
-                <viewController title="UserProfileCheck" id="kqg-OT-xyr" customClass="UserCheckViewController" customModule="JobTracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="OKY-bz-Ktg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="b0o-rf-yK7"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="User Profile" id="gWU-69-FDA"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="olw-rD-KyK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="447.82608695652175" y="204.91071428571428"/>
-        </scene>
         <!--UserProfile-->
         <scene sceneID="Bcj-XX-Urw">
             <objects>
@@ -34,13 +17,24 @@
                     <view key="view" contentMode="scaleToFill" id="1d6-mo-5cI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UserIcon" translatesAutoresizingMaskIntoConstraints="NO" id="oW6-E4-Axw">
+                                <rect key="frame" x="195" y="436" width="24" height="24"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oW6-E4-Axw" firstAttribute="centerY" secondItem="1d6-mo-5cI" secondAttribute="centerY" id="GaY-i6-Z5f"/>
+                            <constraint firstItem="oW6-E4-Axw" firstAttribute="centerX" secondItem="1d6-mo-5cI" secondAttribute="centerX" id="p1A-Ff-lO0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="yh8-eF-Nhe"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Profile" image="UserIcon" landscapeImage="UserIcon" springLoaded="YES" id="uKH-Nb-Izn"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fdA-UY-mvK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1645" y="472"/>
+            <point key="canvasLocation" x="2401" y="205"/>
         </scene>
         <!--SignInUp-->
         <scene sceneID="kbf-Kq-Epc">
@@ -50,7 +44,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppImage" translatesAutoresizingMaskIntoConstraints="NO" id="6b3-aL-YAU">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoImage" translatesAutoresizingMaskIntoConstraints="NO" id="6b3-aL-YAU">
                                 <rect key="frame" x="107" y="94" width="200" height="200"/>
                                 <color key="backgroundColor" name="NeonCarrot"/>
                                 <constraints>
@@ -58,10 +52,36 @@
                                     <constraint firstAttribute="height" constant="200" id="zY2-3W-588"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yrP-Ij-SGU">
+                                <rect key="frame" x="44.666666666666657" y="648" width="325" height="50"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Kh0-54-ZOy"/>
+                                    <constraint firstAttribute="width" constant="325" id="jID-cZ-Nzm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="tintColor" name="BackgroundWhite"/>
+                                <state key="normal" title="Log In"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MBK-JW-QaV">
+                                <rect key="frame" x="44.666666666666657" y="713" width="325" height="50"/>
+                                <color key="backgroundColor" red="0.011982858403276666" green="0.65773715101522845" blue="0.19858413642068459" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="iFb-l3-kjT"/>
+                                    <constraint firstAttribute="width" constant="325" id="xBk-yD-a8q"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="tintColor" name="BackgroundWhite"/>
+                                <state key="normal" title="Sign Up"/>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" name="BlueGradientEnd"/>
+                        <color key="backgroundColor" name="BlueGradientBegin"/>
                         <constraints>
                             <constraint firstItem="6b3-aL-YAU" firstAttribute="centerX" secondItem="k8f-1F-SSG" secondAttribute="centerX" id="3VA-Si-sh5"/>
+                            <constraint firstItem="MBK-JW-QaV" firstAttribute="top" secondItem="yrP-Ij-SGU" secondAttribute="bottom" constant="15" id="Fhb-GA-di4"/>
+                            <constraint firstItem="T9m-7T-Yh1" firstAttribute="bottom" secondItem="MBK-JW-QaV" secondAttribute="bottom" constant="50" id="SJk-H4-R6r"/>
+                            <constraint firstItem="MBK-JW-QaV" firstAttribute="centerX" secondItem="k8f-1F-SSG" secondAttribute="centerX" id="SRb-fH-L8P"/>
+                            <constraint firstItem="yrP-Ij-SGU" firstAttribute="centerX" secondItem="k8f-1F-SSG" secondAttribute="centerX" id="mOY-Px-z5M"/>
                             <constraint firstItem="6b3-aL-YAU" firstAttribute="top" secondItem="T9m-7T-Yh1" secondAttribute="top" constant="50" id="ywt-px-MZT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="T9m-7T-Yh1"/>
@@ -74,37 +94,24 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Profile" image="UserIcon" landscapeImage="UserIcon" springLoaded="YES" id="uNE-7e-VdH"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="LogoImage" destination="6b3-aL-YAU" id="wla-4P-he7"/>
+                        <segue destination="xMo-QG-LKp" kind="show" identifier="UserAlreadyLoggedIn" id="feq-6I-fvZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hyB-kf-uwx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1647.826086956522" y="-204.24107142857142"/>
-        </scene>
-        <!--UserProfileNav-->
-        <scene sceneID="G71-bU-xsV">
-            <objects>
-                <navigationController title="UserProfileNav" automaticallyAdjustsScrollViewInsets="NO" id="wQP-n5-xhV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="UserIcon" landscapeImage="UserIcon" id="zjB-C8-2nL"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gif-8J-g11">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="kqg-OT-xyr" kind="relationship" relationship="rootViewController" id="5uz-an-PAP"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="I5C-2Q-Zdl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-462.31884057971018" y="204.91071428571428"/>
+            <point key="canvasLocation" x="1233" y="205"/>
         </scene>
     </scenes>
     <resources>
-        <image name="AppImage" width="180" height="180"/>
+        <image name="LogoImage" width="180" height="180"/>
         <image name="UserIcon" width="24" height="24"/>
+        <namedColor name="BackgroundWhite">
+            <color red="0.97647058823529409" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="BlueGradientBegin">
             <color red="0.50588235294117645" green="0.87450980392156863" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class UserSignInUpViewController: UIViewController {
 
@@ -15,8 +16,12 @@ class UserSignInUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         LogoImage.roundImage()
-        print("Got into UserSignInUpViewController")
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if Auth.auth().currentUser == nil {
+            self.performSegue(withIdentifier: "UserAlreadyLoggedIn", sender: nil)
+        }
     }
     
 
