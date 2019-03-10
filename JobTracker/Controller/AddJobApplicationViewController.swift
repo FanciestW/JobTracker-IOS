@@ -15,12 +15,24 @@ class AddJobApplicationViewController: UIViewController {
     @IBOutlet weak var companyTextField: UITextField!
     @IBOutlet weak var appliedDateTextField: UITextField!
     @IBOutlet weak var jobTypeTextField: UITextField!
+    @IBOutlet weak var jobLocationTextField: UITextField!
+    @IBOutlet weak var jobNoteTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func btnClearFieldsClicked(_ sender: Any) {
+        jobTitleTextField.text = ""
+        companyTextField.text = ""
+        appliedDateTextField.text = ""
+        jobTypeTextField.text = ""
+        jobLocationTextField.text = ""
+        jobNoteTextView.text = ""
+    }
+    
     
 
     /*
@@ -33,17 +45,4 @@ class AddJobApplicationViewController: UIViewController {
     }
     */
 
-}
-
-// UIViewController Extension to hide keyboard when clicked outside of focused textbox.
-extension UIViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
 }

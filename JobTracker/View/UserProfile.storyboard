@@ -112,10 +112,10 @@
             </objects>
             <point key="canvasLocation" x="3710" y="185"/>
         </scene>
-        <!--View Controller-->
+        <!--User Sign In View Controller-->
         <scene sceneID="5hr-4z-5IK">
             <objects>
-                <viewController id="3KF-QF-ZPq" sceneMemberID="viewController">
+                <viewController id="3KF-QF-ZPq" customClass="UserSignInViewController" customModule="JobTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cg7-Xd-azO" customClass="GradientBackground" customModule="JobTracker" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -136,7 +136,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="username"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p0U-gi-3ll">
                                 <rect key="frame" x="44.666666666666657" y="643" width="325" height="50"/>
@@ -146,7 +146,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ys2-o4-bmP">
                                 <rect key="frame" x="44.666666666666657" y="713" width="325" height="50"/>
@@ -158,6 +158,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="tintColor" name="BackgroundWhite"/>
                                 <state key="normal" title="Log In"/>
+                                <connections>
+                                    <action selector="btnLogInClick:" destination="3KF-QF-ZPq" eventType="touchUpInside" id="POS-5T-Bjd"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="BlueGradientBegin"/>
@@ -181,6 +184,11 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="8aT-fG-Erh" id="nc9-P6-Uco"/>
+                        <outlet property="logoImage" destination="9ic-A7-PbH" id="142-bA-if7"/>
+                        <outlet property="passwordTextField" destination="p0U-gi-3ll" id="2Tp-eu-ayZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hU7-MC-jxl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -189,17 +197,11 @@
         <!--Sign Up-->
         <scene sceneID="dgF-W1-sOa">
             <objects>
-                <viewController id="eiB-oD-tFz" sceneMemberID="viewController">
+                <viewController id="eiB-oD-tFz" customClass="UserSignUpViewController" customModule="JobTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vVs-IC-fCh" customClass="GradientBackground" customModule="JobTracker" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUe-R9-4Wa">
-                                <rect key="frame" x="108" y="766" width="198" height="30"/>
-                                <state key="normal" title="Already have account, Log in">
-                                    <color key="titleColor" name="BackgroundWhite"/>
-                                </state>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LHV-kP-SCh">
                                 <rect key="frame" x="44.666666666666657" y="138" width="325" height="50"/>
                                 <constraints>
@@ -251,7 +253,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Hc-VQ-tXc">
-                                <rect key="frame" x="44.666666666666657" y="701" width="325" height="50"/>
+                                <rect key="frame" x="44.666666666666657" y="723" width="325" height="50"/>
                                 <color key="backgroundColor" red="0.011982858399999999" green="0.65773715099999996" blue="0.1985841364" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Uqx-gj-RYv"/>
@@ -261,24 +263,25 @@
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" name="BackgroundWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnSignUpClick:" destination="eiB-oD-tFz" eventType="touchUpInside" id="PCv-Xs-FT2"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="BlueGradientBegin"/>
                         <constraints>
                             <constraint firstItem="OEp-dB-vSG" firstAttribute="top" secondItem="zpg-Qy-u9o" secondAttribute="bottom" constant="20" id="9YZ-MZ-K2s"/>
                             <constraint firstItem="LHV-kP-SCh" firstAttribute="centerX" secondItem="vVs-IC-fCh" secondAttribute="centerX" id="FBz-39-LiD"/>
-                            <constraint firstItem="WUe-R9-4Wa" firstAttribute="top" secondItem="8Hc-VQ-tXc" secondAttribute="bottom" constant="15" id="Gaz-RY-Zmw"/>
                             <constraint firstItem="zpg-Qy-u9o" firstAttribute="centerX" secondItem="vVs-IC-fCh" secondAttribute="centerX" id="VID-5H-vGN"/>
-                            <constraint firstAttribute="bottom" secondItem="WUe-R9-4Wa" secondAttribute="bottom" constant="100" id="YEA-vY-akk"/>
                             <constraint firstItem="dVc-fy-6Fa" firstAttribute="centerX" secondItem="vVs-IC-fCh" secondAttribute="centerX" id="ZB4-kU-7aZ"/>
                             <constraint firstItem="OEp-dB-vSG" firstAttribute="centerX" secondItem="vVs-IC-fCh" secondAttribute="centerX" id="ZYN-sJ-zTe"/>
                             <constraint firstItem="T8h-gh-3mv" firstAttribute="centerX" secondItem="vVs-IC-fCh" secondAttribute="centerX" id="Zir-UH-pMG"/>
                             <constraint firstItem="zpg-Qy-u9o" firstAttribute="top" secondItem="dVc-fy-6Fa" secondAttribute="bottom" constant="20" id="bBz-Oy-hWQ"/>
                             <constraint firstItem="LHV-kP-SCh" firstAttribute="top" secondItem="ohw-rg-vAH" secondAttribute="top" constant="50" id="d9F-Cm-Nq1"/>
                             <constraint firstItem="8Hc-VQ-tXc" firstAttribute="centerX" secondItem="vVs-IC-fCh" secondAttribute="centerX" id="eec-cz-ZRZ"/>
-                            <constraint firstItem="WUe-R9-4Wa" firstAttribute="centerX" secondItem="vVs-IC-fCh" secondAttribute="centerX" id="hjA-6r-UDe"/>
                             <constraint firstItem="dVc-fy-6Fa" firstAttribute="top" secondItem="T8h-gh-3mv" secondAttribute="bottom" constant="20" id="mHX-20-ipE"/>
                             <constraint firstItem="T8h-gh-3mv" firstAttribute="top" secondItem="LHV-kP-SCh" secondAttribute="bottom" constant="20" id="ouV-vi-Wla"/>
+                            <constraint firstItem="ohw-rg-vAH" firstAttribute="bottom" secondItem="8Hc-VQ-tXc" secondAttribute="bottom" constant="40" id="xAh-p0-JqQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ohw-rg-vAH"/>
                         <userDefinedRuntimeAttributes>
@@ -291,6 +294,13 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" title="Sign Up" id="eSy-SD-WaD"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="dVc-fy-6Fa" id="zR8-Ku-K15"/>
+                        <outlet property="firstNameTextField" destination="LHV-kP-SCh" id="22D-Kx-5zf"/>
+                        <outlet property="lastNameTextField" destination="T8h-gh-3mv" id="Rnn-Bh-fOT"/>
+                        <outlet property="passwordTextField" destination="zpg-Qy-u9o" id="KlD-Dq-twn"/>
+                        <outlet property="retypePasswordTextField" destination="OEp-dB-vSG" id="AKe-Vg-dVZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fm2-TK-TBg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
