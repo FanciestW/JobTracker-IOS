@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BlueGradientBackground: UIView {
+class GradientBackground: UIView {
     @IBInspectable var gradientColor1: UIColor = UIColor.white {
         didSet{
             self.setGradient()

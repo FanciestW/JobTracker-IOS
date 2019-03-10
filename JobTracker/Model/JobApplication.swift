@@ -9,13 +9,15 @@
 import UIKit
 
 class JobApplication {
-    var jobTitle:String
-    var company:String
-    var appliedDate:Date
+    var jobTitle:String = ""
+    var company:String = ""
+    var appliedDate:Date = Date()
+    var jobType:String = ""
+    var jobLocation:String = ""
+    var jobDescription:String = ""
     
-    init(title:String, company:String, appliedDate:Date) {
+    init(title:String, company:String) {
         self.jobTitle = title
         self.company = company
-        self.appliedDate = appliedDate
     }
 }

@@ -19,9 +19,13 @@ class UserSignInUpViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if Auth.auth().currentUser == nil {
+        if Auth.auth().currentUser != nil {
             self.performSegue(withIdentifier: "UserAlreadyLoggedIn", sender: nil)
         }
+    }
+    
+    func createNewUser() {
+        
     }
     
 
