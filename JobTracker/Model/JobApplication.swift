@@ -14,7 +14,7 @@ class JobApplication {
     var appliedDate:Date = Date()
     var jobType:String = ""
     var jobLocation:String = ""
-    var jobDescription:String = ""
+    var jobNotes:String = ""
     
     init(title:String, company:String) {
         self.jobTitle = title

@@ -29,13 +29,33 @@ class AddJobApplicationViewController: UIViewController {
         saveJobApplicationValues()
     }
     
+    @IBAction func btnAddJobApplicationClick(_ sender: Any) {
+        let newJobApplication = JobApplication(title: jobTitleTextField.text ?? "", company: companyTextField.text ?? "")
+        // TODO::Change Date to use the provided value from the User
+        newJobApplication.appliedDate = Date()
+        newJobApplication.jobType = jobTypeTextField.text ?? ""
+        newJobApplication.jobLocation = jobLocationTextField.text ?? ""
+        newJobApplication.jobNotes = jobNoteTextView.text ?? ""
+    }
+    
     @IBAction func btnClearFieldsClicked(_ sender: Any) {
-        jobTitleTextField.text = ""
-        companyTextField.text = ""
-        appliedDateTextField.text = ""
-        jobTypeTextField.text = ""
-        jobLocationTextField.text = ""
-        jobNoteTextView.text = ""
+        let refreshAlert = UIAlertController(title: "Clear All Fields?", message: "This cannot be undone.", preferredStyle: UIAlertController.Style.alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            self.jobTitleTextField.text = ""
+            self.companyTextField.text = ""
+            self.appliedDateTextField.text = ""
+            self.jobTypeTextField.text = ""
+            self.jobLocationTextField.text = ""
+            self.jobNoteTextView.text = ""
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            // Ignore and do nothing
+        }))
+        
+        present(refreshAlert, animated: true, completion: nil)
+        
     }
     
     func loadJobApplicationValues() {

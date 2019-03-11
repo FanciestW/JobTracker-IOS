@@ -99,6 +99,9 @@
                                 <state key="normal" title="Add">
                                     <color key="titleColor" name="BackgroundWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnAddJobApplicationClick:" destination="ghA-ab-PUF" eventType="touchUpInside" id="s18-gW-LyT"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="BlueGradientBegin"/>
