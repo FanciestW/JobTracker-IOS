@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class UserSignInViewController: UIViewController {
     
@@ -18,10 +19,28 @@ class UserSignInViewController: UIViewController {
         super.viewDidLoad()
         logoImage.roundImage()
         self.hideKeyboardWhenTappedAround()
+        
+        _ = Auth.auth().addStateDidChangeListener { (auth, user) in
+            if auth.currentUser != nil {
+                self.goToUserProfile()
+            }
+        }
     }
     
     @IBAction func btnLogInClick(_ sender: Any) {
-        
+        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { [weak self] user, error in
+            if (error != nil) {
+                print("Login Error")
+                print(error ?? "Error")
+            }
+            guard let strongSelf = self else { return }
+            
+        }
+    }
+    
+    func goToUserProfile() {
+        let userProfileView = storyboard?.instantiateViewController(withIdentifier: "UserProfileView")
+        present(userProfileView!, animated: true, completion: nil)
     }
     
     /*

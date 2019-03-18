@@ -11,11 +11,21 @@ import FirebaseAuth
 
 class UserProfileViewController: UIViewController {
     
+    @IBOutlet weak var emailLabel: UILabel!
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         if Auth.auth().currentUser == nil {
-            showSignInUpView()
+            self.showSignInUpView()
         }
+        _ = Auth.auth().addStateDidChangeListener { (auth, user) in
+            if auth.currentUser == nil {
+                self.showSignInUpView()
+            }
+        }
+        
+        emailLabel.text = Auth.auth().currentUser?.email ?? "None"
+        
     }
     
     func showSignInUpView() {
@@ -30,7 +40,10 @@ class UserProfileViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func logOutButtonOnClick(_ sender: Any) {
+        try! Auth.auth().signOut()
+    }
+    
     /*
     // MARK: - Navigation
 

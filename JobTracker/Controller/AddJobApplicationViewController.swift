@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 import Firebase
 
 class AddJobApplicationViewController: UIViewController {
@@ -30,12 +31,22 @@ class AddJobApplicationViewController: UIViewController {
     }
     
     @IBAction func btnAddJobApplicationClick(_ sender: Any) {
-        let newJobApplication = JobApplication(title: jobTitleTextField.text ?? "", company: companyTextField.text ?? "")
-        // TODO::Change Date to use the provided value from the User
-        newJobApplication.appliedDate = Date()
-        newJobApplication.jobType = jobTypeTextField.text ?? ""
-        newJobApplication.jobLocation = jobLocationTextField.text ?? ""
-        newJobApplication.jobNotes = jobNoteTextView.text ?? ""
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let jobApplicationEntity = NSEntityDescription.entity(forEntityName: "JobApplication", in: context)
+        let newJobApplication = NSManagedObject(entity: jobApplicationEntity!, insertInto: context)
+        newJobApplication.setValue(jobTitleTextField.text, forKey: "jobTitle")
+        newJobApplication.setValue(companyTextField.text, forKey: "jobCompany")
+        newJobApplication.setValue(appliedDateTextField.text, forKey: "jobAppliedDate")
+        newJobApplication.setValue(jobTypeTextField.text, forKey: "jobType")
+        newJobApplication.setValue(jobLocationTextField.text, forKey: "jobLocation")
+        newJobApplication.setValue(jobNoteTextView.text, forKey: "jobNote")
+        
+        do {
+            try context.save()
+        } catch {
+            print("Failed to save to DB")
+        }
     }
     
     @IBAction func btnClearFieldsClicked(_ sender: Any) {

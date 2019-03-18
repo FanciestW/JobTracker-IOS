@@ -16,12 +16,11 @@
 		3D1583AA2228FE7000430303 /* GradientBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1583A92228FE7000430303 /* GradientBackground.swift */; };
 		3D4951B5221A589C00EAB7DA /* JobSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4951B4221A589C00EAB7DA /* JobSearch.storyboard */; };
 		3D500788222C4D89000C1BBB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D500787222C4D89000C1BBB /* Images.xcassets */; };
+		3D8A8932223EBD5C00B6C196 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8A8931223EBD5C00B6C196 /* DataController.swift */; };
 		3DAF78DA2218B06C00AFF52A /* AddJobApplication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DAF78D92218B06C00AFF52A /* AddJobApplication.storyboard */; };
 		3DAF78DC2218B52B00AFF52A /* AppliedList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DAF78DB2218B52B00AFF52A /* AppliedList.storyboard */; };
-		3DB93DD12232FA3000099B4D /* JobApplication.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DB93DCF2232FA3000099B4D /* JobApplication.xcdatamodeld */; };
-		3DB93DD6223328BF00099B4D /* JobTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DB93DD4223328BF00099B4D /* JobTracker.xcdatamodeld */; };
+		3DB93DD12232FA3000099B4D /* JobTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DB93DCF2232FA3000099B4D /* JobTracker.xcdatamodeld */; };
 		3DB93DD822343FF700099B4D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB93DD722343FF700099B4D /* User.swift */; };
-		3DBAE3FA22275F830052F89F /* JobApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE3F922275F830052F89F /* JobApplication.swift */; };
 		3DBAE3FC2227935C0052F89F /* AddJobApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE3FB2227935C0052F89F /* AddJobApplicationViewController.swift */; };
 		3DBAE400222798F90052F89F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DBAE3FF222798F90052F89F /* GoogleService-Info.plist */; };
 		3DEDA7152217A3E00084BB3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEDA7142217A3E00084BB3E /* AppDelegate.swift */; };
@@ -44,12 +43,11 @@
 		3D1583A92228FE7000430303 /* GradientBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackground.swift; sourceTree = "<group>"; };
 		3D4951B4221A589C00EAB7DA /* JobSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JobSearch.storyboard; sourceTree = "<group>"; };
 		3D500787222C4D89000C1BBB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3D8A8931223EBD5C00B6C196 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		3DAF78D92218B06C00AFF52A /* AddJobApplication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddJobApplication.storyboard; sourceTree = "<group>"; };
 		3DAF78DB2218B52B00AFF52A /* AppliedList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AppliedList.storyboard; sourceTree = "<group>"; };
 		3DB93DD02232FA3000099B4D /* JobApplication.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JobApplication.xcdatamodel; sourceTree = "<group>"; };
-		3DB93DD5223328BF00099B4D /* JobTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JobTracker.xcdatamodel; sourceTree = "<group>"; };
 		3DB93DD722343FF700099B4D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		3DBAE3F922275F830052F89F /* JobApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobApplication.swift; sourceTree = "<group>"; };
 		3DBAE3FB2227935C0052F89F /* AddJobApplicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJobApplicationViewController.swift; sourceTree = "<group>"; };
 		3DBAE3FF222798F90052F89F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3DEDA7112217A3E00084BB3E /* JobTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,9 +101,9 @@
 		3DBAE3F822275E290052F89F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3DBAE3F922275F830052F89F /* JobApplication.swift */,
-				3DB93DCF2232FA3000099B4D /* JobApplication.xcdatamodeld */,
+				3DB93DCF2232FA3000099B4D /* JobTracker.xcdatamodeld */,
 				3DB93DD722343FF700099B4D /* User.swift */,
+				3D8A8931223EBD5C00B6C196 /* DataController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -139,7 +137,6 @@
 				3D500787222C4D89000C1BBB /* Images.xcassets */,
 				3D15839822285A7300430303 /* Colors.xcassets */,
 				3DEDA7232217A3E50084BB3E /* Info.plist */,
-				3DB93DD4223328BF00099B4D /* JobTracker.xcdatamodeld */,
 				3DBAE3FF222798F90052F89F /* GoogleService-Info.plist */,
 			);
 			path = JobTracker;
@@ -254,16 +251,26 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-JobTracker/Pods-JobTracker-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,11 +312,10 @@
 				3D0F30A32235804400A55474 /* UserSignInViewController.swift in Sources */,
 				3D15839B2228A2A900430303 /* UserProfileViewController.swift in Sources */,
 				3D1583AA2228FE7000430303 /* GradientBackground.swift in Sources */,
-				3DB93DD12232FA3000099B4D /* JobApplication.xcdatamodeld in Sources */,
-				3DB93DD6223328BF00099B4D /* JobTracker.xcdatamodeld in Sources */,
+				3DB93DD12232FA3000099B4D /* JobTracker.xcdatamodeld in Sources */,
+				3D8A8932223EBD5C00B6C196 /* DataController.swift in Sources */,
 				3DF82F86222B3FB300355EC0 /* Extensions.swift in Sources */,
 				3D0F30A52235813900A55474 /* UserSignUpViewController.swift in Sources */,
-				3DBAE3FA22275F830052F89F /* JobApplication.swift in Sources */,
 				3DB93DD822343FF700099B4D /* User.swift in Sources */,
 				3DEDA7152217A3E00084BB3E /* AppDelegate.swift in Sources */,
 				3D1583A42228EB7200430303 /* AppliedListViewController.swift in Sources */,
@@ -523,22 +529,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		3DB93DCF2232FA3000099B4D /* JobApplication.xcdatamodeld */ = {
+		3DB93DCF2232FA3000099B4D /* JobTracker.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				3DB93DD02232FA3000099B4D /* JobApplication.xcdatamodel */,
 			);
 			currentVersion = 3DB93DD02232FA3000099B4D /* JobApplication.xcdatamodel */;
-			path = JobApplication.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-		3DB93DD4223328BF00099B4D /* JobTracker.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				3DB93DD5223328BF00099B4D /* JobTracker.xcdatamodel */,
-			);
-			currentVersion = 3DB93DD5223328BF00099B4D /* JobTracker.xcdatamodel */;
 			path = JobTracker.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
