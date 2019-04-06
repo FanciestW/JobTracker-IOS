@@ -53,18 +53,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <navigationBar key="tableFooterView" contentMode="scaleToFill" id="Mll-wV-S2D">
-                            <rect key="frame" x="0.0" y="88" width="414" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <items>
-                                <navigationItem title="Applied List" id="utb-ot-6h2"/>
-                            </items>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="barPosition">
-                                    <integer key="value" value="3"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </navigationBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="jobApplicationCell" rowHeight="60" id="1db-rV-Yqg" customClass="JobApplicationViewCell" customModule="JobTracker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="60"/>

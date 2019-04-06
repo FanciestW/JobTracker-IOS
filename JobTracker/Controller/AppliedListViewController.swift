@@ -13,7 +13,7 @@ class AppliedListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -41,15 +41,25 @@ class JobApplicationViewCell: UITableViewCell {
 
 class AppliedListTableViewController: UITableViewController {
     
-    var jobApplicationsData: [String] = ["Test1", "Test2"]
+    var jobApplicationsData: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl!.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl!.addTarget(self, action: #selector(refreshJobs(_:)), for: .valueChanged)
+        tableView.addSubview(self.refreshControl!) // not required when using UITableViewController
+        getJobApplications()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         getJobApplications()
+    }
+    
+    @objc func refreshJobs(_ refreshControl: UIRefreshControl) {
+        getJobApplications()
+        refreshControl.endRefreshing()
     }
     
     func getJobApplications() {
@@ -59,10 +69,13 @@ class AppliedListTableViewController: UITableViewController {
         request.returnsObjectsAsFaults = false
         
         do {
+            var newJobApplicationsList: [String] = []
             let result = try context.fetch(request)
             for data in result as! [NSManagedObject] {
-                jobApplicationsData.append(data.value(forKey: "jobTitle") as! String)
+                newJobApplicationsList.append(data.value(forKey: "jobTitle") as! String)
             }
+            self.jobApplicationsData = newJobApplicationsList
+            self.tableView.reloadData()
         } catch {
             print("Error in getting data")
         }
