@@ -54,26 +54,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="jobApplicationCell" rowHeight="60" id="1db-rV-Yqg" customClass="JobApplicationViewCell" customModule="JobTracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="60"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="jobApplicationCell" rowHeight="85" id="1db-rV-Yqg" customClass="JobApplicationViewCell" customModule="JobTracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1db-rV-Yqg" id="G1e-cw-sdg">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="59.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="84.666666666666671"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3U-ai-83b">
-                                            <rect key="frame" x="20" y="19.333333333333332" width="42" height="20.999999999999996"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3U-ai-83b">
+                                            <rect key="frame" x="20" y="32" width="66" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0si-kN-gQ0">
+                                            <rect key="frame" x="321" y="32" width="73" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="0si-kN-gQ0" firstAttribute="trailing" secondItem="G1e-cw-sdg" secondAttribute="trailingMargin" id="j18-42-BZu"/>
                                         <constraint firstItem="M3U-ai-83b" firstAttribute="centerY" secondItem="G1e-cw-sdg" secondAttribute="centerY" id="nlL-VN-5pO"/>
                                         <constraint firstItem="M3U-ai-83b" firstAttribute="leading" secondItem="G1e-cw-sdg" secondAttribute="leadingMargin" id="vYt-D0-G01"/>
+                                        <constraint firstItem="0si-kN-gQ0" firstAttribute="centerY" secondItem="G1e-cw-sdg" secondAttribute="centerY" id="xOs-Fb-Oat"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="jobApplicationCompanyLabel" destination="0si-kN-gQ0" id="xNx-3x-VNh"/>
                                     <outlet property="jobApplicationLabel" destination="M3U-ai-83b" id="pNw-al-FQ1"/>
                                 </connections>
                             </tableViewCell>

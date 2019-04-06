@@ -36,12 +36,13 @@ class AppliedListViewController: UIViewController {
 
 class JobApplicationViewCell: UITableViewCell {
     @IBOutlet weak var jobApplicationLabel: UILabel!
-    
+    @IBOutlet weak var jobApplicationCompanyLabel: UILabel!
 }
 
 class AppliedListTableViewController: UITableViewController {
     
-    var jobApplicationsData: [String] = []
+    var jobApplicationsTitle: [String] = []
+    var jobApplicationsCompany: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,11 +71,14 @@ class AppliedListTableViewController: UITableViewController {
         
         do {
             var newJobApplicationsList: [String] = []
+            var newJobApplicationsCompany: [String] = []
             let result = try context.fetch(request)
             for data in result as! [NSManagedObject] {
                 newJobApplicationsList.append(data.value(forKey: "jobTitle") as! String)
+                newJobApplicationsCompany.append(data.value(forKey: "jobCompany") as! String)
             }
-            self.jobApplicationsData = newJobApplicationsList
+            self.jobApplicationsTitle = newJobApplicationsList
+            self.jobApplicationsCompany = newJobApplicationsCompany
             self.tableView.reloadData()
         } catch {
             print("Error in getting data")
@@ -88,7 +92,7 @@ class AppliedListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return jobApplicationsData.count
+        return jobApplicationsTitle.count
     }
     
     
@@ -96,8 +100,8 @@ class AppliedListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "jobApplicationCell", for: indexPath) as! JobApplicationViewCell
         
         // Configure the cell...
-        cell.jobApplicationLabel.text = jobApplicationsData[indexPath.row]
-        
+        cell.jobApplicationLabel.text = jobApplicationsTitle[indexPath.row]
+        cell.jobApplicationCompanyLabel.text = jobApplicationsCompany[indexPath.row]
         return cell
     }
 }
