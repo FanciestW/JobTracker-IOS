@@ -42,11 +42,19 @@ class AddJobApplicationViewController: UIViewController {
         newJobApplication.setValue(jobTypeTextField.text, forKey: "jobType")
         newJobApplication.setValue(jobLocationTextField.text, forKey: "jobLocation")
         newJobApplication.setValue(jobNoteTextView.text, forKey: "jobNote")
-        
+        let alert = UIAlertController(title: "New Application", message: nil, preferredStyle: .alert)
+        let okAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default)
+        alert.addAction(okAlertAction)
         do {
             try context.save()
+            self.present(alert, animated: true, completion: nil)
+            // Delay the dismissal by 2 seconds
+            Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: { _ in alert.dismiss(animated: true, completion: nil)})
+            clearJobApplicationField()
         } catch {
             print("Failed to save to DB")
+            alert.title = "Job Failed to Save"
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -87,6 +95,15 @@ class AddJobApplicationViewController: UIViewController {
         
         present(refreshAlert, animated: true, completion: nil)
         
+    }
+    
+    func clearJobApplicationField() {
+        self.jobTitleTextField.text = ""
+        self.companyTextField.text = ""
+        self.appliedDateTextField.text = ""
+        self.jobTypeTextField.text = ""
+        self.jobLocationTextField.text = ""
+        self.jobNoteTextView.text = ""
     }
     
     func loadJobApplicationValues() {
@@ -136,7 +153,6 @@ class AddJobApplicationViewController: UIViewController {
         UserDefaults.standard.set(jobLocationTextField.text, forKey: "saveJobLocation")
         UserDefaults.standard.set(jobNoteTextView.text, forKey: "saveJobNote")
     }
-    
     /*
     // MARK: - Navigation
 
