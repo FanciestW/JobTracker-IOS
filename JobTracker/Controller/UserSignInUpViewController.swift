@@ -24,11 +24,10 @@ class UserSignInUpViewController: UIViewController {
         }
     }
     
-    func createNewUser() {
-        
+    @IBAction func cancelSignInUp(_ sender: Any) {
+        self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
-
     /*
     // MARK: - Navigation
 

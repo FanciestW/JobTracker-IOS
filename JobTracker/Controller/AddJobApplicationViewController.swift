@@ -23,6 +23,7 @@ class AddJobApplicationViewController: UIViewController {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         loadJobApplicationValues()
+        addInputAccessoryForTextFields(textFields: [jobTitleTextField, companyTextField, appliedDateTextField, jobTypeTextField, jobLocationTextField], dismissable: true, previousNextable: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -48,6 +49,25 @@ class AddJobApplicationViewController: UIViewController {
             print("Failed to save to DB")
         }
     }
+    
+    @IBAction func appliedDateEditDidBegin(_ sender: UITextField) {
+        let datePickerView:UIDatePicker = UIDatePicker()
+        datePickerView.datePickerMode = UIDatePicker.Mode.date
+        sender.inputView = datePickerView
+        datePickerView.addTarget(self, action: #selector(updateDateField), for: UIControl.Event.valueChanged)
+    }
+    
+    @objc func updateDateField() {
+        let picker:UIDatePicker = self.appliedDateTextField.inputView as! UIDatePicker
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateStyle = DateFormatter.Style.full
+        
+        let strDate = dateFormatter.string(from: picker.date)
+        self.appliedDateTextField.text = strDate
+    }
+    
     
     @IBAction func btnClearFieldsClicked(_ sender: Any) {
         let refreshAlert = UIAlertController(title: "Clear All Fields?", message: "This cannot be undone.", preferredStyle: UIAlertController.Style.alert)
@@ -117,8 +137,6 @@ class AddJobApplicationViewController: UIViewController {
         UserDefaults.standard.set(jobNoteTextView.text, forKey: "saveJobNote")
     }
     
-    
-
     /*
     // MARK: - Navigation
 

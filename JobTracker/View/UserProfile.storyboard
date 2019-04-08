@@ -120,7 +120,11 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" id="XJI-cc-fgz">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="eTc-yN-X2S"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="eTc-yN-X2S">
+                            <connections>
+                                <action selector="cancelSignInUp:" destination="iZd-2L-NKf" id="OKL-zw-CZk"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
