@@ -13,19 +13,19 @@ class UserProfileViewController: UIViewController {
     
     @IBOutlet weak var emailLabel: UILabel!
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+    override func viewWillAppear(_ animated: Bool) {
         if Auth.auth().currentUser == nil {
-            self.showSignInUpView()
+            goToNewJobView()
         }
-        _ = Auth.auth().addStateDidChangeListener { (auth, user) in
-            if auth.currentUser == nil {
-                self.showSignInUpView()
-            }
-        }
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         emailLabel.text = Auth.auth().currentUser?.email ?? "None"
-        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
     }
     
     func showSignInUpView() {
@@ -34,14 +34,17 @@ class UserProfileViewController: UIViewController {
             self.present(signInUpViewController, animated: true, completion: nil)
         }
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
     
     @IBAction func logOutButtonOnClick(_ sender: Any) {
         try! Auth.auth().signOut()
+        showSignInUpView()
+    }
+    
+    func goToNewJobView() {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainTabView: UITabBarController = mainStoryboard.instantiateViewController(withIdentifier: "mainTabBarController") as! UITabBarController
+        mainTabView.selectedIndex = 2 // Show the new job application tab.
+        self.present(mainTabView, animated: false, completion: nil)
     }
     
     /*

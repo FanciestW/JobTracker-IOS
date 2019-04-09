@@ -39,8 +39,10 @@ class UserSignInViewController: UIViewController {
     }
     
     func goToUserProfile() {
-        let userProfileView = storyboard?.instantiateViewController(withIdentifier: "UserProfileView")
-        present(userProfileView!, animated: true, completion: nil)
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainTabView: UITabBarController = mainStoryboard.instantiateViewController(withIdentifier: "mainTabBarController") as! UITabBarController
+        mainTabView.selectedIndex = 3 // Show the user profile tab.
+        self.present(mainTabView, animated: true, completion: nil)
     }
     
     /*

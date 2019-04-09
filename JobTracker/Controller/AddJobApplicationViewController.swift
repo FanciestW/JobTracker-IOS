@@ -42,8 +42,8 @@ class AddJobApplicationViewController: UIViewController {
         newJobApplication.setValue(jobTypeTextField.text, forKey: "jobType")
         newJobApplication.setValue(jobLocationTextField.text, forKey: "jobLocation")
         newJobApplication.setValue(jobNoteTextView.text, forKey: "jobNote")
-        let alert = UIAlertController(title: "New Application", message: nil, preferredStyle: .alert)
-        let okAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default)
+        let alert = UIAlertController(title: "Job Saved", message: nil, preferredStyle: .alert)
+        let okAlertAction = UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default)
         alert.addAction(okAlertAction)
         do {
             try context.save()
