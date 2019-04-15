@@ -15,6 +15,7 @@
 		3D1583A62228EBEB00430303 /* JobSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1583A52228EBEB00430303 /* JobSearchViewController.swift */; };
 		3D1583AA2228FE7000430303 /* GradientBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1583A92228FE7000430303 /* GradientBackground.swift */; };
 		3D4951B5221A589C00EAB7DA /* JobSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4951B4221A589C00EAB7DA /* JobSearch.storyboard */; };
+		3D4CB55D2264018700715AB8 /* JobListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4CB55C2264018700715AB8 /* JobListing.swift */; };
 		3D500788222C4D89000C1BBB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D500787222C4D89000C1BBB /* Images.xcassets */; };
 		3D8A8932223EBD5C00B6C196 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8A8931223EBD5C00B6C196 /* DataController.swift */; };
 		3DAF78DA2218B06C00AFF52A /* AddJobApplication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DAF78D92218B06C00AFF52A /* AddJobApplication.storyboard */; };
@@ -43,6 +44,7 @@
 		3D1583A52228EBEB00430303 /* JobSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobSearchViewController.swift; sourceTree = "<group>"; };
 		3D1583A92228FE7000430303 /* GradientBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackground.swift; sourceTree = "<group>"; };
 		3D4951B4221A589C00EAB7DA /* JobSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JobSearch.storyboard; sourceTree = "<group>"; };
+		3D4CB55C2264018700715AB8 /* JobListing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListing.swift; sourceTree = "<group>"; };
 		3D500787222C4D89000C1BBB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3D8A8931223EBD5C00B6C196 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		3DAF78D92218B06C00AFF52A /* AddJobApplication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddJobApplication.storyboard; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				3DB93DCF2232FA3000099B4D /* JobTracker.xcdatamodeld */,
 				3DB93DD722343FF700099B4D /* User.swift */,
 				3D8A8931223EBD5C00B6C196 /* DataController.swift */,
+				3D4CB55C2264018700715AB8 /* JobListing.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-JobTracker/Pods-JobTracker-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
@@ -267,6 +271,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
@@ -321,6 +326,7 @@
 				3DF82F86222B3FB300355EC0 /* Extensions.swift in Sources */,
 				3D0F30A52235813900A55474 /* UserSignUpViewController.swift in Sources */,
 				3DB93DD822343FF700099B4D /* User.swift in Sources */,
+				3D4CB55D2264018700715AB8 /* JobListing.swift in Sources */,
 				3DEDA7152217A3E00084BB3E /* AppDelegate.swift in Sources */,
 				3D1583A42228EB7200430303 /* AppliedListViewController.swift in Sources */,
 				3DBAE3FC2227935C0052F89F /* AddJobApplicationViewController.swift in Sources */,
