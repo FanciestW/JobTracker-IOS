@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0A6-a0-cTS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L4Y-Y4-bfg">
     <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,17 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="heU-MU-2TT">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <items>
-                                    <navigationItem title="Job Search" id="QfF-he-eN0"/>
-                                </items>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="barPosition">
-                                        <integer key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </navigationBar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Job Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Muu-ve-Y20">
                                 <rect key="frame" x="82" y="363" width="250" height="40"/>
                                 <constraints>
@@ -53,19 +42,18 @@
                                 <rect key="frame" x="164.66666666666666" y="493" width="85" height="46"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <state key="normal" title="Search"/>
+                                <connections>
+                                    <action selector="onSearchPress:" destination="0A6-a0-cTS" eventType="touchUpInside" id="2dN-GV-F0w"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="BlueGradientBegin"/>
                         <constraints>
-                            <constraint firstItem="al7-bk-gU6" firstAttribute="top" secondItem="heU-MU-2TT" secondAttribute="bottom" constant="-44" id="7gK-5f-9IU"/>
                             <constraint firstItem="2U4-uB-WPc" firstAttribute="centerY" secondItem="UwM-7J-Vd3" secondAttribute="centerY" id="8EI-VG-mtY"/>
                             <constraint firstItem="bqf-0f-z0s" firstAttribute="top" secondItem="2U4-uB-WPc" secondAttribute="bottom" constant="25" id="KrC-Sw-qg3"/>
                             <constraint firstItem="bqf-0f-z0s" firstAttribute="centerX" secondItem="UwM-7J-Vd3" secondAttribute="centerX" id="Vfd-g1-W5e"/>
                             <constraint firstItem="Muu-ve-Y20" firstAttribute="centerX" secondItem="UwM-7J-Vd3" secondAttribute="centerX" id="bzB-c3-fj9"/>
-                            <constraint firstItem="heU-MU-2TT" firstAttribute="trailing" secondItem="al7-bk-gU6" secondAttribute="trailing" id="g3u-ZL-UPq"/>
-                            <constraint firstItem="heU-MU-2TT" firstAttribute="leading" secondItem="al7-bk-gU6" secondAttribute="leading" id="j5Y-1f-LGs"/>
                             <constraint firstItem="2U4-uB-WPc" firstAttribute="top" secondItem="Muu-ve-Y20" secondAttribute="bottom" constant="25" id="n01-pE-Sp8"/>
-                            <constraint firstItem="heU-MU-2TT" firstAttribute="centerX" secondItem="al7-bk-gU6" secondAttribute="centerX" id="oCn-ug-XAD"/>
                             <constraint firstItem="2U4-uB-WPc" firstAttribute="centerX" secondItem="UwM-7J-Vd3" secondAttribute="centerX" id="uK1-Td-wny"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="al7-bk-gU6"/>
@@ -78,10 +66,69 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Job Search" image="SearchIcon" landscapeImage="SearchIcon" id="CVV-xS-H2K"/>
+                    <navigationItem key="navigationItem" title="Job Search" id="7l5-mI-COO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="59V-xo-EJS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="884.05797101449286" y="130.58035714285714"/>
+        </scene>
+        <!--Search Results View Controller-->
+        <scene sceneID="3VX-Ta-gF7">
+            <objects>
+                <viewController storyboardIdentifier="searchResultsViewController" id="inX-2R-xLc" customClass="SearchResultsViewController" customModule="JobTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pgb-ib-0g5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="uF9-Fv-51A">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="jobListingCell" rowHeight="70" id="jEP-So-AoX">
+                                        <rect key="frame" x="0.0" y="55.333333333333343" width="414" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jEP-So-AoX" id="7Mb-Pw-dDH">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="69.666666666666671"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="uF9-Fv-51A" firstAttribute="trailing" secondItem="smG-mU-VR6" secondAttribute="trailing" id="4Aq-lq-toy"/>
+                            <constraint firstItem="uF9-Fv-51A" firstAttribute="leading" secondItem="smG-mU-VR6" secondAttribute="leading" id="XEz-RU-j09"/>
+                            <constraint firstItem="uF9-Fv-51A" firstAttribute="top" secondItem="smG-mU-VR6" secondAttribute="top" id="Y3q-eZ-qM4"/>
+                            <constraint firstItem="uF9-Fv-51A" firstAttribute="bottom" secondItem="smG-mU-VR6" secondAttribute="bottom" id="jJf-5v-scR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="smG-mU-VR6"/>
+                    </view>
+                    <connections>
+                        <outlet property="resultsTableView" destination="uF9-Fv-51A" id="f4O-xP-VM7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xkb-XE-WeT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1771.0144927536232" y="130.58035714285714"/>
+        </scene>
+        <!--Job Search-->
+        <scene sceneID="vTm-jw-xJk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="L4Y-Y4-bfg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Job Search" image="SearchIcon" landscapeImage="SearchIcon" id="CVV-xS-H2K"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0Af-Kw-4x7">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0A6-a0-cTS" kind="relationship" relationship="rootViewController" id="P1p-OY-JWg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oez-se-zNJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-26.086956521739133" y="130.58035714285714"/>
         </scene>

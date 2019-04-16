@@ -24,6 +24,7 @@
 		3DB93DD822343FF700099B4D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB93DD722343FF700099B4D /* User.swift */; };
 		3DBAE3FC2227935C0052F89F /* AddJobApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE3FB2227935C0052F89F /* AddJobApplicationViewController.swift */; };
 		3DBAE400222798F90052F89F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DBAE3FF222798F90052F89F /* GoogleService-Info.plist */; };
+		3DC130FE2265727F002A7E58 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC130FD2265727F002A7E58 /* SearchResultsViewController.swift */; };
 		3DC58A4F225C0C0600485BF9 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC58A4E225C0C0600485BF9 /* MainTabBarViewController.swift */; };
 		3DEDA7152217A3E00084BB3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEDA7142217A3E00084BB3E /* AppDelegate.swift */; };
 		3DEDA71A2217A3E00084BB3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DEDA7182217A3E00084BB3E /* Main.storyboard */; };
@@ -53,6 +54,7 @@
 		3DB93DD722343FF700099B4D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3DBAE3FB2227935C0052F89F /* AddJobApplicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJobApplicationViewController.swift; sourceTree = "<group>"; };
 		3DBAE3FF222798F90052F89F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3DC130FD2265727F002A7E58 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		3DC58A4E225C0C0600485BF9 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainTabBarViewController.swift; path = JobTracker/Controller/MainTabBarViewController.swift; sourceTree = SOURCE_ROOT; };
 		3DEDA7112217A3E00084BB3E /* JobTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DEDA7142217A3E00084BB3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 		3DAF78DF2218BA1D00AFF52A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3DC130FD2265727F002A7E58 /* SearchResultsViewController.swift */,
 				3DC58A4E225C0C0600485BF9 /* MainTabBarViewController.swift */,
 				3D0F30A42235813900A55474 /* UserSignUpViewController.swift */,
 				3D0F30A22235804400A55474 /* UserSignInViewController.swift */,
@@ -324,6 +327,7 @@
 				3DB93DD12232FA3000099B4D /* JobTracker.xcdatamodeld in Sources */,
 				3D8A8932223EBD5C00B6C196 /* DataController.swift in Sources */,
 				3DF82F86222B3FB300355EC0 /* Extensions.swift in Sources */,
+				3DC130FE2265727F002A7E58 /* SearchResultsViewController.swift in Sources */,
 				3D0F30A52235813900A55474 /* UserSignUpViewController.swift in Sources */,
 				3DB93DD822343FF700099B4D /* User.swift in Sources */,
 				3D4CB55D2264018700715AB8 /* JobListing.swift in Sources */,

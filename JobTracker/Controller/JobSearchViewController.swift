@@ -16,7 +16,11 @@ class JobSearchViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func onSearchPress(_ sender: Any) {
+        let vc = UIStoryboard.init(name: "JobSearch", bundle: Bundle.main).instantiateViewController(withIdentifier: "searchResultsViewController") as? SearchResultsViewController
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 
