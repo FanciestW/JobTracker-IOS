@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import Alamofire
 
 class JobSearchViewController: UIViewController {
+    
+    @IBOutlet weak var titleTextfield: UITextField!
+    @IBOutlet weak var locationTextfield: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,8 +21,21 @@ class JobSearchViewController: UIViewController {
     }
     
     @IBAction func onSearchPress(_ sender: Any) {
-        let vc = UIStoryboard.init(name: "JobSearch", bundle: Bundle.main).instantiateViewController(withIdentifier: "searchResultsViewController") as? SearchResultsViewController
-        self.navigationController?.pushViewController(vc!, animated: true)
+        let jobTitle: String = self.titleTextfield.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        let location: String = self.locationTextfield.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        let requestUrl: String = "https://jobs.github.com/positions.json?description=\(jobTitle.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!)&location=\(location.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!)"
+        Alamofire.request(requestUrl).responseJSON { response in
+            var jobList: [JobListing] = []
+            if let json = response.result.value {
+                for result in json as! NSArray {
+                    jobList.append(JobListing(jsonDict: result as! NSDictionary))
+                }
+            }
+            let vc = UIStoryboard.init(name: "JobSearch", bundle: Bundle.main).instantiateViewController(withIdentifier: "searchResultsViewController") as? SearchResultsViewController
+            vc?.searchQuery = "test99"
+            vc?.searchResults = jobList
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
     }
     
     /*

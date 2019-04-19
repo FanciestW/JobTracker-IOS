@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L4Y-Y4-bfg">
-    <device id="retina6_5" orientation="portrait">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Job Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Muu-ve-Y20">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Job Description" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Muu-ve-Y20">
                                 <rect key="frame" x="82" y="363" width="250" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="oNp-sF-g6z"/>
@@ -39,7 +39,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqf-0f-z0s">
-                                <rect key="frame" x="164.66666666666666" y="493" width="85" height="46"/>
+                                <rect key="frame" x="164.5" y="493" width="85" height="46"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <state key="normal" title="Search"/>
                                 <connections>
@@ -66,8 +66,14 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <navigationItem key="navigationItem" title="Job Search" id="7l5-mI-COO"/>
+                    <navigationItem key="navigationItem" title="Job Search" id="7l5-mI-COO">
+                        <barButtonItem key="rightBarButtonItem" title="Clear" id="uv0-if-Ogv"/>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="locationTextfield" destination="2U4-uB-WPc" id="tM4-oA-fAo"/>
+                        <outlet property="titleTextfield" destination="Muu-ve-Y20" id="yCh-tg-oho"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="59V-xo-EJS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -81,17 +87,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="uF9-Fv-51A">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uF9-Fv-51A">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="jobListingCell" rowHeight="70" id="jEP-So-AoX">
-                                        <rect key="frame" x="0.0" y="55.333333333333343" width="414" height="70"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="jobListingCell" rowHeight="90" id="jEP-So-AoX" customClass="JobListingCell" customModule="JobTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jEP-So-AoX" id="7Mb-Pw-dDH">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="69.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="89.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="jobCompany" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7M7-2J-BKp">
+                                                    <rect key="frame" x="10" y="12.5" width="300" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="jobLocation" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZrT-oQ-KwR">
+                                                    <rect key="frame" x="10" y="60.5" width="300" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="jobTitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zak-i5-Vfm">
+                                                    <rect key="frame" x="10" y="34.5" width="55" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Zak-i5-Vfm" firstAttribute="centerY" secondItem="7Mb-Pw-dDH" secondAttribute="centerY" id="5lx-y8-Bb7"/>
+                                                <constraint firstItem="ZrT-oQ-KwR" firstAttribute="top" secondItem="Zak-i5-Vfm" secondAttribute="bottom" constant="5" id="JbO-cP-JQ9"/>
+                                                <constraint firstItem="ZrT-oQ-KwR" firstAttribute="leading" secondItem="7Mb-Pw-dDH" secondAttribute="leading" constant="10" id="NeK-Ze-8UV"/>
+                                                <constraint firstItem="Zak-i5-Vfm" firstAttribute="leading" secondItem="7Mb-Pw-dDH" secondAttribute="leading" constant="10" id="haO-uY-U2f"/>
+                                                <constraint firstAttribute="trailing" secondItem="ZrT-oQ-KwR" secondAttribute="trailing" constant="10" id="m9b-e5-TBU"/>
+                                                <constraint firstItem="7M7-2J-BKp" firstAttribute="leading" secondItem="7Mb-Pw-dDH" secondAttribute="leading" constant="10" id="wSu-x0-a9f"/>
+                                                <constraint firstItem="Zak-i5-Vfm" firstAttribute="top" secondItem="7M7-2J-BKp" secondAttribute="bottom" constant="5" id="yiO-Q8-25S"/>
+                                                <constraint firstAttribute="trailing" secondItem="7M7-2J-BKp" secondAttribute="trailing" constant="10" id="yiS-hv-WXS"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="jobCompanyLabel" destination="7M7-2J-BKp" id="LmN-bV-ITR"/>
+                                            <outlet property="jobLocationLabel" destination="ZrT-oQ-KwR" id="qaY-L5-XvI"/>
+                                            <outlet property="jobTitleLabel" destination="Zak-i5-Vfm" id="MlN-EU-JaH"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -111,7 +152,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xkb-XE-WeT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1771.0144927536232" y="130.58035714285714"/>
+            <point key="canvasLocation" x="1770" y="129.92957746478874"/>
+        </scene>
+        <!--Job Listing Detail View Controller-->
+        <scene sceneID="g4l-uK-E4d">
+            <objects>
+                <viewController id="W2z-n8-ftk" customClass="JobListingDetailViewController" customModule="JobTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jMt-Mq-iW9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="PXF-z2-B3j"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Io-cP-AiW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2643" y="131"/>
         </scene>
         <!--Job Search-->
         <scene sceneID="vTm-jw-xJk">

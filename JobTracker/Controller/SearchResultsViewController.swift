@@ -7,9 +7,19 @@
 //
 
 import UIKit
+import Alamofire 
+
+class JobListingCell: UITableViewCell {
+    @IBOutlet weak var jobTitleLabel: UILabel!
+    @IBOutlet weak var jobLocationLabel: UILabel!
+    @IBOutlet weak var jobCompanyLabel: UILabel!
+}
 
 class SearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
+    var searchQuery: String = ""
+    var searchResults: [JobListing] = []
+    
     @IBOutlet weak var resultsTableView: UITableView!
     var jobListings: [String] = ["Test", "Test1", "Test2"]
     
@@ -18,17 +28,20 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         self.title = "Search Results"
         resultsTableView.dataSource = self
         resultsTableView.delegate = self
+        jobListings.append(searchQuery)
         // Do any additional setup after loading the view.
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "jobListingCell", for: indexPath)
-        cell.textLabel?.text = jobListings[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "jobListingCell", for: indexPath) as! JobListingCell
+        cell.jobTitleLabel?.text = searchResults[indexPath.row].jobTitle
+        cell.jobCompanyLabel?.text = searchResults[indexPath.row].jobCompany
+        cell.jobLocationLabel?.text = searchResults[indexPath.row].jobLocation
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return jobListings.count
+        return searchResults.count
     }
 
     /*
