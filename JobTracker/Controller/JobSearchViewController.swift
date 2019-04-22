@@ -32,7 +32,7 @@ class JobSearchViewController: UIViewController {
                 }
             }
             let vc = UIStoryboard.init(name: "JobSearch", bundle: Bundle.main).instantiateViewController(withIdentifier: "searchResultsViewController") as? SearchResultsViewController
-            vc?.searchQuery = "test99"
+            vc?.searchQuery = requestUrl
             vc?.searchResults = jobList
             self.navigationController?.pushViewController(vc!, animated: true)
         }

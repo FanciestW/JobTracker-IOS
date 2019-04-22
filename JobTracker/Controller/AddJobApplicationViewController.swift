@@ -15,15 +15,17 @@ class AddJobApplicationViewController: UIViewController {
     @IBOutlet weak var jobTitleTextField: UITextField!
     @IBOutlet weak var companyTextField: UITextField!
     @IBOutlet weak var appliedDateTextField: UITextField!
-    @IBOutlet weak var jobTypeTextField: UITextField!
     @IBOutlet weak var jobLocationTextField: UITextField!
+    @IBOutlet weak var jobAppStatusTextField: UITextField!
     @IBOutlet weak var jobNoteTextView: UITextView!
+    @IBOutlet weak var jobTypeSegControl: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        jobTypeSegControl.layer.cornerRadius = 4.0;
         self.hideKeyboardWhenTappedAround()
         loadJobApplicationValues()
-        addInputAccessoryForTextFields(textFields: [jobTitleTextField, companyTextField, appliedDateTextField, jobTypeTextField, jobLocationTextField], dismissable: true, previousNextable: true)
+        addInputAccessoryForTextFields(textFields: [jobTitleTextField, companyTextField, appliedDateTextField, jobLocationTextField, jobAppStatusTextField], dismissable: true, previousNextable: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -32,14 +34,33 @@ class AddJobApplicationViewController: UIViewController {
     }
     
     @IBAction func btnAddJobApplicationClick(_ sender: Any) {
+        if (!checkInputFields()) {
+            return
+        }
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let jobApplicationEntity = NSEntityDescription.entity(forEntityName: "JobApplication", in: context)
         let newJobApplication = NSManagedObject(entity: jobApplicationEntity!, insertInto: context)
+        let jobType: String
+        switch jobTypeSegControl.selectedSegmentIndex {
+            case 0:
+                jobType = "Full Time"
+                break
+            case 1:
+                jobType = "Part Time"
+                break
+            case 2:
+                jobType = "Internship"
+                break;
+            case 3:
+                jobType = "Contract"
+            default:
+                jobType = ""
+        }
         newJobApplication.setValue(jobTitleTextField.text, forKey: "jobTitle")
         newJobApplication.setValue(companyTextField.text, forKey: "jobCompany")
         newJobApplication.setValue(appliedDateTextField.text, forKey: "jobAppliedDate")
-        newJobApplication.setValue(jobTypeTextField.text, forKey: "jobType")
+        newJobApplication.setValue(jobType, forKey: "jobType")
         newJobApplication.setValue(jobLocationTextField.text, forKey: "jobLocation")
         newJobApplication.setValue(jobNoteTextView.text, forKey: "jobNote")
         let alert = UIAlertController(title: "Job Saved", message: nil, preferredStyle: .alert)
@@ -56,6 +77,16 @@ class AddJobApplicationViewController: UIViewController {
             alert.title = "Job Failed to Save"
             self.present(alert, animated: true, completion: nil)
         }
+    }
+    
+    func checkInputFields() -> Bool {
+        if (jobTitleTextField.text == "") {
+            jobTitleTextField.layer.cornerRadius = 4.0
+            jobTitleTextField.layer.borderColor = UIColor.red.cgColor
+            jobTitleTextField.layer.borderWidth = 2.0
+            return false
+        }
+        return true
     }
     
     @IBAction func appliedDateEditDidBegin(_ sender: UITextField) {
@@ -76,32 +107,24 @@ class AddJobApplicationViewController: UIViewController {
         self.appliedDateTextField.text = strDate
     }
     
-    
     @IBAction func btnClearFieldsClicked(_ sender: Any) {
-        let refreshAlert = UIAlertController(title: "Clear All Fields?", message: "This cannot be undone.", preferredStyle: UIAlertController.Style.alert)
+        let confirmation = UIAlertController(title: "Clear All Fields?", message: "This cannot be undone.", preferredStyle: UIAlertController.Style.alert)
         
-        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-            self.jobTitleTextField.text = ""
-            self.companyTextField.text = ""
-            self.appliedDateTextField.text = ""
-            self.jobTypeTextField.text = ""
-            self.jobLocationTextField.text = ""
-            self.jobNoteTextView.text = ""
+        confirmation.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in self.clearJobApplicationField()
         }))
         
-        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+        confirmation.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
             // Ignore and do nothing
         }))
         
-        present(refreshAlert, animated: true, completion: nil)
-        
+        present(confirmation, animated: true, completion: nil)
     }
     
     func clearJobApplicationField() {
         self.jobTitleTextField.text = ""
         self.companyTextField.text = ""
         self.appliedDateTextField.text = ""
-        self.jobTypeTextField.text = ""
+        self.jobTypeSegControl.selectedSegmentIndex = 0;
         self.jobLocationTextField.text = ""
         self.jobNoteTextView.text = ""
     }
@@ -127,9 +150,9 @@ class AddJobApplicationViewController: UIViewController {
         }
         
         if let saveJobType = UserDefaults.standard.value(forKey: "saveJobType") {
-            jobTypeTextField.text = saveJobType as? String ?? ""
+            jobTypeSegControl.selectedSegmentIndex = saveJobType as? Int ?? 0
         } else {
-            UserDefaults.standard.set(jobTypeTextField.text, forKey: "saveJobType")
+            UserDefaults.standard.set(jobTypeSegControl.selectedSegmentIndex, forKey: "saveJobType")
         }
         
         if let saveJobLocation = UserDefaults.standard.value(forKey: "saveJobLocation") {
@@ -149,7 +172,7 @@ class AddJobApplicationViewController: UIViewController {
         UserDefaults.standard.set(jobTitleTextField.text, forKey: "saveJobTitle")
         UserDefaults.standard.set(companyTextField.text, forKey: "saveJobCompany")
         UserDefaults.standard.set(appliedDateTextField.text, forKey: "saveJobAppliedDate")
-        UserDefaults.standard.set(jobTypeTextField.text, forKey: "saveJobType")
+        UserDefaults.standard.set(jobTypeSegControl.selectedSegmentIndex, forKey: "saveJobType")
         UserDefaults.standard.set(jobLocationTextField.text, forKey: "saveJobLocation")
         UserDefaults.standard.set(jobNoteTextView.text, forKey: "saveJobNote")
     }

@@ -9,47 +9,25 @@
 import UIKit
 import CoreData
 
-class AppliedListViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-    }
-    
-    override func loadView() {
-        super.loadView()
-        
-    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
-
 class JobApplicationViewCell: UITableViewCell {
     @IBOutlet weak var jobApplicationLabel: UILabel!
     @IBOutlet weak var jobApplicationCompanyLabel: UILabel!
 }
 
-class AppliedListTableViewController: UITableViewController {
+class AppliedListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    @IBOutlet weak var appliedTableView: UITableView!
     
     var jobApplicationsTitle: [String] = []
     var jobApplicationsCompany: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.refreshControl = UIRefreshControl()
-        self.refreshControl!.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        self.refreshControl!.addTarget(self, action: #selector(refreshJobs(_:)), for: .valueChanged)
-        tableView.addSubview(self.refreshControl!) // not required when using UITableViewController
+        appliedTableView.dataSource = self
+        appliedTableView.delegate = self
+        appliedTableView.refreshControl = UIRefreshControl()
+        appliedTableView.refreshControl!.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        appliedTableView.refreshControl!.addTarget(self, action: #selector(refreshJobs(_:)), for: .valueChanged)
+        appliedTableView.addSubview(appliedTableView.refreshControl!) // not required when using UITableViewController
         getJobApplications()
     }
     
@@ -60,7 +38,7 @@ class AppliedListTableViewController: UITableViewController {
     
     @objc func refreshJobs(_ refreshControl: UIRefreshControl) {
         getJobApplications()
-        refreshControl.endRefreshing()
+        appliedTableView.refreshControl!.endRefreshing()
     }
     
     func getJobApplications() {
@@ -79,24 +57,24 @@ class AppliedListTableViewController: UITableViewController {
             }
             self.jobApplicationsTitle = newJobApplicationsList
             self.jobApplicationsCompany = newJobApplicationsCompany
-            self.tableView.reloadData()
+            appliedTableView.reloadData()
         } catch {
             print("Error in getting data")
         }
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return jobApplicationsTitle.count
     }
     
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "jobApplicationCell", for: indexPath) as! JobApplicationViewCell
         
         // Configure the cell...
@@ -104,4 +82,15 @@ class AppliedListTableViewController: UITableViewController {
         cell.jobApplicationCompanyLabel.text = jobApplicationsCompany[indexPath.row]
         return cell
     }
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }

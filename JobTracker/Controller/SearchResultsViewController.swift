@@ -21,14 +21,12 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     var searchResults: [JobListing] = []
     
     @IBOutlet weak var resultsTableView: UITableView!
-    var jobListings: [String] = ["Test", "Test1", "Test2"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Search Results"
         resultsTableView.dataSource = self
         resultsTableView.delegate = self
-        jobListings.append(searchQuery)
         // Do any additional setup after loading the view.
     }
     

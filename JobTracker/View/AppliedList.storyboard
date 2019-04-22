@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kAf-r3-r2T">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KBA-1h-mxP">
     <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -28,76 +28,67 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vlv-MF-MBL">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="jobApplicationCell" rowHeight="85" id="rQE-Te-8sh" customClass="JobApplicationViewCell" customModule="JobTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="85"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rQE-Te-8sh" id="J5E-Lh-kQX">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="84.666666666666671"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nmN-7d-fpF">
+                                                    <rect key="frame" x="20" y="32" width="66" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZt-Sj-1cI">
+                                                    <rect key="frame" x="321" y="32" width="73" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="oZt-Sj-1cI" firstAttribute="centerY" secondItem="J5E-Lh-kQX" secondAttribute="centerY" id="275-Kx-f4p"/>
+                                                <constraint firstItem="nmN-7d-fpF" firstAttribute="leading" secondItem="J5E-Lh-kQX" secondAttribute="leadingMargin" id="LRx-4p-wMX"/>
+                                                <constraint firstItem="nmN-7d-fpF" firstAttribute="centerY" secondItem="J5E-Lh-kQX" secondAttribute="centerY" id="MRI-Zo-ChS"/>
+                                                <constraint firstItem="oZt-Sj-1cI" firstAttribute="trailing" secondItem="J5E-Lh-kQX" secondAttribute="trailingMargin" id="leQ-YV-YPi"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="jobApplicationCompanyLabel" destination="oZt-Sj-1cI" id="xB8-3S-DEe"/>
+                                            <outlet property="jobApplicationLabel" destination="nmN-7d-fpF" id="02B-xG-J0Y"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="vlv-MF-MBL" firstAttribute="top" secondItem="2vx-pH-Gbd" secondAttribute="bottom" id="0FP-Np-LWr"/>
                             <constraint firstItem="2vx-pH-Gbd" firstAttribute="trailing" secondItem="p9B-Xo-fGW" secondAttribute="trailing" id="3AB-Oi-qZ8"/>
                             <constraint firstItem="p9B-Xo-fGW" firstAttribute="top" secondItem="2vx-pH-Gbd" secondAttribute="bottom" constant="-44" id="LoO-Dq-PNg"/>
                             <constraint firstItem="2vx-pH-Gbd" firstAttribute="leading" secondItem="p9B-Xo-fGW" secondAttribute="leading" id="OWf-BB-BCG"/>
                             <constraint firstItem="2vx-pH-Gbd" firstAttribute="centerX" secondItem="p9B-Xo-fGW" secondAttribute="centerX" id="YMx-ok-laT"/>
+                            <constraint firstItem="vlv-MF-MBL" firstAttribute="leading" secondItem="p9B-Xo-fGW" secondAttribute="leading" id="Yag-rK-uf4"/>
+                            <constraint firstItem="p9B-Xo-fGW" firstAttribute="trailing" secondItem="vlv-MF-MBL" secondAttribute="trailing" id="bXo-JO-kY6"/>
+                            <constraint firstItem="p9B-Xo-fGW" firstAttribute="bottom" secondItem="vlv-MF-MBL" secondAttribute="bottom" id="yVI-fY-CD6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="p9B-Xo-fGW"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Applied" image="CheckListFilledIcon" landscapeImage="CheckListFilledIcon" id="8gE-6g-vrV"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="appliedTableView" destination="vlv-MF-MBL" id="ejE-IV-w9W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bCz-Vp-bFs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-26" y="92"/>
-        </scene>
-        <!--Applied-->
-        <scene sceneID="AxT-Fi-dIb">
-            <objects>
-                <tableViewController id="kAf-r3-r2T" customClass="AppliedListTableViewController" customModule="JobTracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="geQ-oe-203">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="jobApplicationCell" rowHeight="85" id="1db-rV-Yqg" customClass="JobApplicationViewCell" customModule="JobTracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55.333333333333343" width="414" height="85"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1db-rV-Yqg" id="G1e-cw-sdg">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="84.666666666666671"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3U-ai-83b">
-                                            <rect key="frame" x="20" y="32" width="66" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0si-kN-gQ0">
-                                            <rect key="frame" x="321" y="32" width="73" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="0si-kN-gQ0" firstAttribute="trailing" secondItem="G1e-cw-sdg" secondAttribute="trailingMargin" id="j18-42-BZu"/>
-                                        <constraint firstItem="M3U-ai-83b" firstAttribute="centerY" secondItem="G1e-cw-sdg" secondAttribute="centerY" id="nlL-VN-5pO"/>
-                                        <constraint firstItem="M3U-ai-83b" firstAttribute="leading" secondItem="G1e-cw-sdg" secondAttribute="leadingMargin" id="vYt-D0-G01"/>
-                                        <constraint firstItem="0si-kN-gQ0" firstAttribute="centerY" secondItem="G1e-cw-sdg" secondAttribute="centerY" id="xOs-Fb-Oat"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="jobApplicationCompanyLabel" destination="0si-kN-gQ0" id="xNx-3x-VNh"/>
-                                    <outlet property="jobApplicationLabel" destination="M3U-ai-83b" id="pNw-al-FQ1"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="kAf-r3-r2T" id="KBe-vK-K27"/>
-                            <outlet property="delegate" destination="kAf-r3-r2T" id="6Rz-sh-XSV"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Applied" image="CheckListFilledIcon" landscapeImage="CheckListFilledIcon" id="VPN-18-cTc"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7c0-Tc-X19" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="818.84057971014499" y="97.767857142857139"/>
+            <point key="canvasLocation" x="1" y="92"/>
         </scene>
     </scenes>
     <resources>
