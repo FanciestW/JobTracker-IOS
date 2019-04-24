@@ -17,8 +17,7 @@ class JobApplicationViewCell: UITableViewCell {
 class AppliedListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var appliedTableView: UITableView!
     
-    var jobApplicationsTitle: [String] = []
-    var jobApplicationsCompany: [String] = []
+    var savedJobAppList: [SavedApplication] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +27,6 @@ class AppliedListViewController: UIViewController, UITableViewDataSource, UITabl
         appliedTableView.refreshControl!.attributedTitle = NSAttributedString(string: "Pull to refresh")
         appliedTableView.refreshControl!.addTarget(self, action: #selector(refreshJobs(_:)), for: .valueChanged)
         appliedTableView.addSubview(appliedTableView.refreshControl!) // not required when using UITableViewController
-        getJobApplications()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
         getJobApplications()
     }
     
@@ -48,15 +42,20 @@ class AppliedListViewController: UIViewController, UITableViewDataSource, UITabl
         request.returnsObjectsAsFaults = false
         
         do {
-            var newJobApplicationsList: [String] = []
-            var newJobApplicationsCompany: [String] = []
             let result = try context.fetch(request)
             for data in result as! [NSManagedObject] {
-                newJobApplicationsList.append(data.value(forKey: "jobTitle") as! String)
-                newJobApplicationsCompany.append(data.value(forKey: "jobCompany") as! String)
+                let savedJobApp = SavedApplication(
+                    title: data.value(forKey: "jobTitle") as? String ?? "",
+                    company: data.value(forKey: "jobCompany") as? String ?? "",
+                    jobType: data.value(forKey: "jobType") as? String ?? "",
+                    loc: data.value(forKey: "jobLocation") as? String ?? "",
+                    date: data.value(forKey: "jobAppliedDate") as? String ?? "",
+                    status: data.value(forKey: "jobAppStatus") as? String ?? "",
+                    note: data.value(forKey: "jobNote") as? String ?? ""
+                )
+                savedJobApp.objectId = data.objectID
+                savedJobAppList.append(savedJobApp)
             }
-            self.jobApplicationsTitle = newJobApplicationsList
-            self.jobApplicationsCompany = newJobApplicationsCompany
             appliedTableView.reloadData()
         } catch {
             print("Error in getting data")
@@ -70,7 +69,7 @@ class AppliedListViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return jobApplicationsTitle.count
+        return savedJobAppList.count
     }
     
     
@@ -78,9 +77,15 @@ class AppliedListViewController: UIViewController, UITableViewDataSource, UITabl
         let cell = tableView.dequeueReusableCell(withIdentifier: "jobApplicationCell", for: indexPath) as! JobApplicationViewCell
         
         // Configure the cell...
-        cell.jobApplicationLabel.text = jobApplicationsTitle[indexPath.row]
-        cell.jobApplicationCompanyLabel.text = jobApplicationsCompany[indexPath.row]
+        cell.jobApplicationLabel.text = savedJobAppList[indexPath.row].title
+        cell.jobApplicationCompanyLabel.text = savedJobAppList[indexPath.row].company
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = UIStoryboard.init(name: "AppliedList", bundle: Bundle.main).instantiateViewController(withIdentifier: "jobAppDetailViewController") as? JobAppDetailViewController
+        vc?.savedApp = savedJobAppList[indexPath.row]
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
 
     /*

@@ -43,6 +43,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldEditingDidBegin:" destination="ghA-ab-PUF" eventType="editingDidBegin" id="0uX-YX-XT7"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2vz-Vw-qcG">
                                 <rect key="frame" x="20" y="158" width="374" height="40"/>
@@ -52,6 +55,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldEditingDidBegin:" destination="ghA-ab-PUF" eventType="editingDidBegin" id="JGb-6p-Kkz"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Applied Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YLn-xM-t5V">
                                 <rect key="frame" x="20" y="208" width="374" height="40"/>
@@ -63,6 +69,7 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="appliedDateEditDidBegin:" destination="ghA-ab-PUF" eventType="editingDidBegin" id="14p-y2-lck"/>
+                                    <action selector="textFieldEditingDidBegin:" destination="ghA-ab-PUF" eventType="editingDidBegin" id="2XE-9T-FGR"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Job Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ULd-Ib-Xl6">
@@ -73,6 +80,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldEditingDidBegin:" destination="ghA-ab-PUF" eventType="editingDidBegin" id="dE4-nm-mtr"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAj-xr-M4l">
                                 <rect key="frame" x="82" y="743" width="250" height="50"/>
@@ -109,6 +119,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldEditingDidBegin:" destination="ghA-ab-PUF" eventType="editingDidBegin" id="HSr-aZ-Cbd"/>
+                                </connections>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iTx-Tc-pEg">
                                 <rect key="frame" x="20" y="408" width="374" height="325"/>

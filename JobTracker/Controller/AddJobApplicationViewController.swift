@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import Firebase
 
-class AddJobApplicationViewController: UIViewController {
+class AddJobApplicationViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var jobTitleTextField: UITextField!
     @IBOutlet weak var companyTextField: UITextField!
@@ -22,10 +22,14 @@ class AddJobApplicationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        jobTypeSegControl.layer.cornerRadius = 4.0;
+        jobTypeSegControl.layer.cornerRadius = 4.0
+        jobNoteTextView.layer.cornerRadius = 4.0
         self.hideKeyboardWhenTappedAround()
         loadJobApplicationValues()
         addInputAccessoryForTextFields(textFields: [jobTitleTextField, companyTextField, appliedDateTextField, jobLocationTextField, jobAppStatusTextField], dismissable: true, previousNextable: true)
+        let statusPicker = UIPickerView()
+        statusPicker.delegate = self
+        jobAppStatusTextField.inputView = statusPicker
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -62,6 +66,7 @@ class AddJobApplicationViewController: UIViewController {
         newJobApplication.setValue(appliedDateTextField.text, forKey: "jobAppliedDate")
         newJobApplication.setValue(jobType, forKey: "jobType")
         newJobApplication.setValue(jobLocationTextField.text, forKey: "jobLocation")
+        newJobApplication.setValue(jobAppStatusTextField.text, forKey: "jobAppStatus")
         newJobApplication.setValue(jobNoteTextView.text, forKey: "jobNote")
         let alert = UIAlertController(title: "Job Saved", message: nil, preferredStyle: .alert)
         let okAlertAction = UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default)
@@ -80,13 +85,42 @@ class AddJobApplicationViewController: UIViewController {
     }
     
     func checkInputFields() -> Bool {
+        var fieldsCheck = true
         if (jobTitleTextField.text == "") {
             jobTitleTextField.layer.cornerRadius = 4.0
             jobTitleTextField.layer.borderColor = UIColor.red.cgColor
             jobTitleTextField.layer.borderWidth = 2.0
-            return false
+            fieldsCheck = fieldsCheck && false
         }
-        return true
+        if (companyTextField.text == "") {
+            companyTextField.layer.cornerRadius = 4.0
+            companyTextField.layer.borderColor = UIColor.red.cgColor
+            companyTextField.layer.borderWidth = 2.0
+            fieldsCheck = fieldsCheck && false
+        }
+        if (appliedDateTextField.text == "") {
+            appliedDateTextField.layer.cornerRadius = 4.0
+            appliedDateTextField.layer.borderColor = UIColor.red.cgColor
+            appliedDateTextField.layer.borderWidth = 2.0
+            fieldsCheck = fieldsCheck && false
+        }
+        if (jobLocationTextField.text == "") {
+            jobLocationTextField.layer.cornerRadius = 4.0
+            jobLocationTextField.layer.borderColor = UIColor.red.cgColor
+            jobLocationTextField.layer.borderWidth = 2.0
+            fieldsCheck = fieldsCheck && false
+        }
+        if (jobAppStatusTextField.text == "") {
+            jobAppStatusTextField.layer.cornerRadius = 4.0
+            jobAppStatusTextField.layer.borderColor = UIColor.red.cgColor
+            jobAppStatusTextField.layer.borderWidth = 2.0
+            fieldsCheck = fieldsCheck && false
+        }
+        return fieldsCheck
+    }
+    
+    @IBAction func textFieldEditingDidBegin(_ sender: Any) {
+        (sender as! UITextField).layer.borderWidth = 0.0
     }
     
     @IBAction func appliedDateEditDidBegin(_ sender: UITextField) {
@@ -105,6 +139,24 @@ class AddJobApplicationViewController: UIViewController {
         
         let strDate = dateFormatter.string(from: picker.date)
         self.appliedDateTextField.text = strDate
+    }
+    
+    let appStatusData = [String](arrayLiteral: "Interested", "Applied", "Interviewing", "Rejected", "Job Offered")
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return appStatusData.count
+    }
+    
+    func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return appStatusData[row]
+    }
+    
+    func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        jobAppStatusTextField.text = appStatusData[row]
     }
     
     @IBAction func btnClearFieldsClicked(_ sender: Any) {
@@ -126,6 +178,7 @@ class AddJobApplicationViewController: UIViewController {
         self.appliedDateTextField.text = ""
         self.jobTypeSegControl.selectedSegmentIndex = 0;
         self.jobLocationTextField.text = ""
+        self.jobAppStatusTextField.text = ""
         self.jobNoteTextView.text = ""
     }
     
@@ -161,6 +214,12 @@ class AddJobApplicationViewController: UIViewController {
             UserDefaults.standard.set(jobLocationTextField.text, forKey: "saveJobLocation")
         }
         
+        if let saveJobAppStatus = UserDefaults.standard.value(forKey: "saveJobAppStatus") {
+            jobAppStatusTextField.text = saveJobAppStatus as? String ?? ""
+        } else {
+            UserDefaults.standard.set(jobLocationTextField.text, forKey: "saveJobAppStatus")
+        }
+        
         if let saveJobNote = UserDefaults.standard.value(forKey: "saveJobNote") {
             jobNoteTextView.text = saveJobNote as? String ?? ""
         } else {
@@ -174,16 +233,8 @@ class AddJobApplicationViewController: UIViewController {
         UserDefaults.standard.set(appliedDateTextField.text, forKey: "saveJobAppliedDate")
         UserDefaults.standard.set(jobTypeSegControl.selectedSegmentIndex, forKey: "saveJobType")
         UserDefaults.standard.set(jobLocationTextField.text, forKey: "saveJobLocation")
+        UserDefaults.standard.set(jobAppStatusTextField.text, forKey: "saveJobAppStatus")
         UserDefaults.standard.set(jobNoteTextView.text, forKey: "saveJobNote")
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

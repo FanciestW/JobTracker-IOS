@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KBA-1h-mxP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="B2G-Qe-oxm">
     <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Applied-->
+        <!--Applied List-->
         <scene sceneID="NEy-9g-Ji0">
             <objects>
                 <viewController id="KBA-1h-mxP" customClass="AppliedListViewController" customModule="JobTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,17 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2vx-pH-Gbd">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <items>
-                                    <navigationItem title="Applied List" id="JhS-pV-ahs"/>
-                                </items>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="barPosition">
-                                        <integer key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vlv-MF-MBL">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -69,29 +59,203 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="vlv-MF-MBL" firstAttribute="top" secondItem="2vx-pH-Gbd" secondAttribute="bottom" id="0FP-Np-LWr"/>
-                            <constraint firstItem="2vx-pH-Gbd" firstAttribute="trailing" secondItem="p9B-Xo-fGW" secondAttribute="trailing" id="3AB-Oi-qZ8"/>
-                            <constraint firstItem="p9B-Xo-fGW" firstAttribute="top" secondItem="2vx-pH-Gbd" secondAttribute="bottom" constant="-44" id="LoO-Dq-PNg"/>
-                            <constraint firstItem="2vx-pH-Gbd" firstAttribute="leading" secondItem="p9B-Xo-fGW" secondAttribute="leading" id="OWf-BB-BCG"/>
-                            <constraint firstItem="2vx-pH-Gbd" firstAttribute="centerX" secondItem="p9B-Xo-fGW" secondAttribute="centerX" id="YMx-ok-laT"/>
-                            <constraint firstItem="vlv-MF-MBL" firstAttribute="leading" secondItem="p9B-Xo-fGW" secondAttribute="leading" id="Yag-rK-uf4"/>
-                            <constraint firstItem="p9B-Xo-fGW" firstAttribute="trailing" secondItem="vlv-MF-MBL" secondAttribute="trailing" id="bXo-JO-kY6"/>
-                            <constraint firstItem="p9B-Xo-fGW" firstAttribute="bottom" secondItem="vlv-MF-MBL" secondAttribute="bottom" id="yVI-fY-CD6"/>
+                            <constraint firstItem="vlv-MF-MBL" firstAttribute="bottom" secondItem="p9B-Xo-fGW" secondAttribute="bottom" id="9iC-uP-nHX"/>
+                            <constraint firstItem="vlv-MF-MBL" firstAttribute="trailing" secondItem="p9B-Xo-fGW" secondAttribute="trailing" id="Gwf-xT-1RO"/>
+                            <constraint firstItem="vlv-MF-MBL" firstAttribute="leading" secondItem="p9B-Xo-fGW" secondAttribute="leading" id="J2j-M1-cwV"/>
+                            <constraint firstItem="vlv-MF-MBL" firstAttribute="top" secondItem="p9B-Xo-fGW" secondAttribute="top" id="V2s-hm-wKO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="p9B-Xo-fGW"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Applied" image="CheckListFilledIcon" landscapeImage="CheckListFilledIcon" id="8gE-6g-vrV"/>
+                    <navigationItem key="navigationItem" title="Applied List" id="ayJ-EH-U9X"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="appliedTableView" destination="vlv-MF-MBL" id="ejE-IV-w9W"/>
+                        <segue destination="RNh-RM-TAA" kind="show" identifier="jobAppDetailSeague" id="zLr-x0-ISK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bCz-Vp-bFs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1" y="92"/>
+            <point key="canvasLocation" x="775" y="92"/>
+        </scene>
+        <!--Job App Detail View Controller-->
+        <scene sceneID="Gdz-Sw-E2r">
+            <objects>
+                <viewController storyboardIdentifier="jobAppDetailViewController" id="RNh-RM-TAA" customClass="JobAppDetailViewController" customModule="JobTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eXC-7G-8L6" customClass="GradientBackground" customModule="JobTracker" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Job Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X3l-Uh-x4K">
+                                <rect key="frame" x="20" y="98" width="374" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Sff-Gt-crA"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eE5-zx-EeZ">
+                                <rect key="frame" x="20" y="148" width="374" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="hlS-33-yCq"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Applied Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dcT-xt-Yws">
+                                <rect key="frame" x="20" y="198" width="374" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="MTA-0q-mxD"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="appliedDateEditDidBegin:" destination="RNh-RM-TAA" eventType="editingDidBegin" id="gxe-YZ-0Pb"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Job Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Pm-5A-wpj">
+                                <rect key="frame" x="20" y="298" width="374" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Y0q-OC-ljW"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NLf-Y9-AZB">
+                                <rect key="frame" x="82" y="743" width="250" height="50"/>
+                                <color key="backgroundColor" name="NeonCarrot"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="1NF-Jp-dGQ"/>
+                                    <constraint firstAttribute="height" constant="50" id="49V-0D-6Wd"/>
+                                </constraints>
+                                <state key="normal" title="Update">
+                                    <color key="titleColor" name="BackgroundWhite"/>
+                                </state>
+                            </button>
+                            <segmentedControl opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dqM-x4-dEL">
+                                <rect key="frame" x="20" y="253" width="374" height="31"/>
+                                <color key="backgroundColor" name="BackgroundWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ESu-J2-R36"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Full Time"/>
+                                    <segment title="Part Time"/>
+                                    <segment title="Internship"/>
+                                    <segment title="Contract"/>
+                                </segments>
+                            </segmentedControl>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Application Status" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t2C-AF-dUS">
+                                <rect key="frame" x="20" y="348" width="374" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="BSn-Ba-j7T"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="byg-Xb-fPR">
+                                <rect key="frame" x="20" y="398" width="374" height="335"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" name="BlueGradientBegin"/>
+                        <constraints>
+                            <constraint firstItem="eE5-zx-EeZ" firstAttribute="leading" secondItem="Q0y-Tf-YVA" secondAttribute="leading" constant="20" id="0cQ-0k-bHc"/>
+                            <constraint firstItem="Q0y-Tf-YVA" firstAttribute="trailing" secondItem="byg-Xb-fPR" secondAttribute="trailing" constant="20" id="1mV-Zx-qdn"/>
+                            <constraint firstItem="2Pm-5A-wpj" firstAttribute="centerX" secondItem="eXC-7G-8L6" secondAttribute="centerX" id="35r-VI-5re"/>
+                            <constraint firstItem="Q0y-Tf-YVA" firstAttribute="trailing" secondItem="dqM-x4-dEL" secondAttribute="trailing" constant="20" id="3y2-eb-uBg"/>
+                            <constraint firstItem="Q0y-Tf-YVA" firstAttribute="trailing" secondItem="t2C-AF-dUS" secondAttribute="trailing" constant="20" id="4u4-ka-LlM"/>
+                            <constraint firstItem="2Pm-5A-wpj" firstAttribute="top" secondItem="dqM-x4-dEL" secondAttribute="bottom" constant="15" id="64i-Kv-TiN"/>
+                            <constraint firstItem="eE5-zx-EeZ" firstAttribute="top" secondItem="X3l-Uh-x4K" secondAttribute="bottom" constant="10" id="85j-Ec-L8h"/>
+                            <constraint firstItem="t2C-AF-dUS" firstAttribute="centerX" secondItem="eXC-7G-8L6" secondAttribute="centerX" id="8PB-ie-63l"/>
+                            <constraint firstItem="t2C-AF-dUS" firstAttribute="leading" secondItem="Q0y-Tf-YVA" secondAttribute="leading" constant="20" id="ANm-Oe-dnP"/>
+                            <constraint firstItem="Q0y-Tf-YVA" firstAttribute="trailing" secondItem="X3l-Uh-x4K" secondAttribute="trailing" constant="20" id="Cd1-PK-dab"/>
+                            <constraint firstItem="X3l-Uh-x4K" firstAttribute="leading" secondItem="Q0y-Tf-YVA" secondAttribute="leading" constant="20" id="F0s-zf-eqk"/>
+                            <constraint firstItem="Q0y-Tf-YVA" firstAttribute="trailing" secondItem="eE5-zx-EeZ" secondAttribute="trailing" constant="20" id="Kc0-sz-4Oc"/>
+                            <constraint firstItem="NLf-Y9-AZB" firstAttribute="top" secondItem="byg-Xb-fPR" secondAttribute="bottom" constant="10" id="MA2-rG-0Eu"/>
+                            <constraint firstItem="dqM-x4-dEL" firstAttribute="leading" secondItem="Q0y-Tf-YVA" secondAttribute="leading" constant="20" id="NBx-kq-qUk"/>
+                            <constraint firstItem="dqM-x4-dEL" firstAttribute="top" secondItem="dcT-xt-Yws" secondAttribute="bottom" constant="15" id="OeP-7C-uUA"/>
+                            <constraint firstItem="dqM-x4-dEL" firstAttribute="centerX" secondItem="eXC-7G-8L6" secondAttribute="centerX" id="RAA-hT-Udi"/>
+                            <constraint firstItem="X3l-Uh-x4K" firstAttribute="top" secondItem="Q0y-Tf-YVA" secondAttribute="top" constant="10" id="RIP-cP-zhb"/>
+                            <constraint firstItem="byg-Xb-fPR" firstAttribute="top" secondItem="t2C-AF-dUS" secondAttribute="bottom" constant="10" id="RlN-RW-63P"/>
+                            <constraint firstItem="X3l-Uh-x4K" firstAttribute="centerX" secondItem="eXC-7G-8L6" secondAttribute="centerX" id="UmH-F6-TTD"/>
+                            <constraint firstItem="Q0y-Tf-YVA" firstAttribute="trailing" secondItem="2Pm-5A-wpj" secondAttribute="trailing" constant="20" id="VPL-K9-16t"/>
+                            <constraint firstItem="2Pm-5A-wpj" firstAttribute="leading" secondItem="Q0y-Tf-YVA" secondAttribute="leading" constant="20" id="ZVc-RL-pwH"/>
+                            <constraint firstItem="eE5-zx-EeZ" firstAttribute="centerX" secondItem="eXC-7G-8L6" secondAttribute="centerX" id="azi-jC-of7"/>
+                            <constraint firstItem="byg-Xb-fPR" firstAttribute="leading" secondItem="Q0y-Tf-YVA" secondAttribute="leading" constant="20" id="bJg-0Y-eFx"/>
+                            <constraint firstItem="byg-Xb-fPR" firstAttribute="centerX" secondItem="eXC-7G-8L6" secondAttribute="centerX" id="bgG-YL-Vf3"/>
+                            <constraint firstItem="Q0y-Tf-YVA" firstAttribute="bottom" secondItem="NLf-Y9-AZB" secondAttribute="bottom" constant="20" id="esL-ID-PB9"/>
+                            <constraint firstItem="Q0y-Tf-YVA" firstAttribute="trailing" secondItem="dcT-xt-Yws" secondAttribute="trailing" constant="20" id="i1q-8w-iYZ"/>
+                            <constraint firstItem="t2C-AF-dUS" firstAttribute="top" secondItem="2Pm-5A-wpj" secondAttribute="bottom" constant="10" id="jbL-0c-X5r"/>
+                            <constraint firstItem="dcT-xt-Yws" firstAttribute="top" secondItem="eE5-zx-EeZ" secondAttribute="bottom" constant="10" id="pee-BA-6MB"/>
+                            <constraint firstItem="dcT-xt-Yws" firstAttribute="centerX" secondItem="eXC-7G-8L6" secondAttribute="centerX" id="qoB-Xm-xuC"/>
+                            <constraint firstItem="NLf-Y9-AZB" firstAttribute="centerX" secondItem="eXC-7G-8L6" secondAttribute="centerX" id="ukk-2s-kbq"/>
+                            <constraint firstItem="dcT-xt-Yws" firstAttribute="leading" secondItem="Q0y-Tf-YVA" secondAttribute="leading" constant="20" id="ze3-Do-dBa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Q0y-Tf-YVA"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="gradientColor1">
+                                <color key="value" name="BlueGradientBegin"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="gradientColor2">
+                                <color key="value" name="BlueGradientEnd"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <connections>
+                        <outlet property="appliedDateText" destination="dcT-xt-Yws" id="hd6-Mx-8zI"/>
+                        <outlet property="jobAppStatusText" destination="t2C-AF-dUS" id="XzW-WH-wHm"/>
+                        <outlet property="jobCompanyText" destination="eE5-zx-EeZ" id="PXV-zA-PBZ"/>
+                        <outlet property="jobLocationText" destination="2Pm-5A-wpj" id="7bu-gH-osl"/>
+                        <outlet property="jobNoteTextView" destination="byg-Xb-fPR" id="Z2w-9o-rpl"/>
+                        <outlet property="jobTitleText" destination="X3l-Uh-x4K" id="hu0-qA-pAX"/>
+                        <outlet property="jobTypeSegControl" destination="dqM-x4-dEL" id="3ym-gX-o0q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gdd-Nn-HIU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1560" y="90"/>
+        </scene>
+        <!--Applied-->
+        <scene sceneID="bHg-X1-DfU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="B2G-Qe-oxm" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Applied" image="CheckListFilledIcon" landscapeImage="CheckListFilledIcon" id="8gE-6g-vrV"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5MD-4c-Spw">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KBA-1h-mxP" kind="relationship" relationship="rootViewController" id="Mpy-Vu-c35"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OFT-VV-Ndj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="91.741071428571431"/>
         </scene>
     </scenes>
     <resources>
         <image name="CheckListFilledIcon" width="24" height="24"/>
+        <namedColor name="BackgroundWhite">
+            <color red="0.97647058823529409" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BlueGradientBegin">
+            <color red="0.50588235294117645" green="0.87450980392156863" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BlueGradientEnd">
+            <color red="0.29803921568627451" green="0.32941176470588235" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="NeonCarrot">
+            <color red="1" green="0.6470588235294118" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
