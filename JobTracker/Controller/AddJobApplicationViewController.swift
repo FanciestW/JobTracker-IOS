@@ -141,7 +141,7 @@ class AddJobApplicationViewController: UIViewController, UIPickerViewDelegate, U
         self.appliedDateTextField.text = strDate
     }
     
-    let appStatusData = [String](arrayLiteral: "Interested", "Applied", "Interviewing", "Rejected", "Job Offered")
+    let appStatusData = [String](arrayLiteral: "Interested", "Applied", "Interviewing", "Rejected", "Job Offered", "Offer Accepted", "Offer Declined")
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

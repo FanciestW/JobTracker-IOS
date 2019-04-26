@@ -30,13 +30,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nmN-7d-fpF">
-                                                    <rect key="frame" x="20" y="32" width="66" height="21"/>
+                                                    <rect key="frame" x="20" y="32" width="239" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZt-Sj-1cI">
-                                                    <rect key="frame" x="321" y="32" width="73" height="21"/>
+                                                    <rect key="frame" x="269" y="32" width="125" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="125" id="hpc-TW-1vu"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -46,6 +49,7 @@
                                                 <constraint firstItem="oZt-Sj-1cI" firstAttribute="centerY" secondItem="J5E-Lh-kQX" secondAttribute="centerY" id="275-Kx-f4p"/>
                                                 <constraint firstItem="nmN-7d-fpF" firstAttribute="leading" secondItem="J5E-Lh-kQX" secondAttribute="leadingMargin" id="LRx-4p-wMX"/>
                                                 <constraint firstItem="nmN-7d-fpF" firstAttribute="centerY" secondItem="J5E-Lh-kQX" secondAttribute="centerY" id="MRI-Zo-ChS"/>
+                                                <constraint firstItem="oZt-Sj-1cI" firstAttribute="leading" secondItem="nmN-7d-fpF" secondAttribute="trailing" constant="10" id="jea-fp-WHV"/>
                                                 <constraint firstItem="oZt-Sj-1cI" firstAttribute="trailing" secondItem="J5E-Lh-kQX" secondAttribute="trailingMargin" id="leQ-YV-YPi"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -124,7 +128,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NLf-Y9-AZB">
+                            <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NLf-Y9-AZB">
                                 <rect key="frame" x="82" y="743" width="250" height="50"/>
                                 <color key="backgroundColor" name="NeonCarrot"/>
                                 <constraints>
@@ -134,8 +138,11 @@
                                 <state key="normal" title="Update">
                                     <color key="titleColor" name="BackgroundWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="updateJobApp:" destination="RNh-RM-TAA" eventType="touchUpInside" id="Yyf-k1-2DR"/>
+                                </connections>
                             </button>
-                            <segmentedControl opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dqM-x4-dEL">
+                            <segmentedControl opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dqM-x4-dEL">
                                 <rect key="frame" x="20" y="253" width="374" height="31"/>
                                 <color key="backgroundColor" name="BackgroundWhite"/>
                                 <constraints>
@@ -217,6 +224,7 @@
                         <outlet property="jobNoteTextView" destination="byg-Xb-fPR" id="Z2w-9o-rpl"/>
                         <outlet property="jobTitleText" destination="X3l-Uh-x4K" id="hu0-qA-pAX"/>
                         <outlet property="jobTypeSegControl" destination="dqM-x4-dEL" id="3ym-gX-o0q"/>
+                        <outlet property="updateButton" destination="NLf-Y9-AZB" id="h1V-oN-4mI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gdd-Nn-HIU" userLabel="First Responder" sceneMemberID="firstResponder"/>

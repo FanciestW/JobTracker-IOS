@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class JobAppDetailViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     var savedApp: SavedApplication? = nil
+    let jobTypes = ["Full Time", "Part Time", "Internship", "Contract"]
     
     @IBOutlet weak var jobTitleText: UITextField!
     @IBOutlet weak var jobCompanyText: UITextField!
@@ -19,6 +21,7 @@ class JobAppDetailViewController: UIViewController, UIPickerViewDelegate, UIPick
     @IBOutlet weak var jobLocationText: UITextField!
     @IBOutlet weak var jobAppStatusText: UITextField!
     @IBOutlet weak var jobNoteTextView: UITextView!
+    @IBOutlet weak var updateButton: UIButton!
     
     var backButton: UIBarButtonItem? = nil
     
@@ -75,6 +78,7 @@ class JobAppDetailViewController: UIViewController, UIPickerViewDelegate, UIPick
             action: #selector(cancelButtonAction(sender:))
         )
         self.navigationItem.rightBarButtonItem = cancelButton
+        self.updateButton.isHidden = false
         jobTitleText.isUserInteractionEnabled = true
         jobCompanyText.isUserInteractionEnabled = true
         appliedDateText.isUserInteractionEnabled = true
@@ -82,6 +86,7 @@ class JobAppDetailViewController: UIViewController, UIPickerViewDelegate, UIPick
         jobLocationText.isUserInteractionEnabled = true
         jobAppStatusText.isUserInteractionEnabled = true
         jobNoteTextView.isUserInteractionEnabled = true
+        updateButton.isUserInteractionEnabled = true
     }
     
     @objc func cancelButtonAction(sender: UIBarButtonItem) {
@@ -96,6 +101,40 @@ class JobAppDetailViewController: UIViewController, UIPickerViewDelegate, UIPick
             action: #selector(editButtonAction(sender:))
         )
         self.navigationItem.rightBarButtonItem = editButton
+        jobTitleText.isUserInteractionEnabled = false
+        jobCompanyText.isUserInteractionEnabled = false
+        appliedDateText.isUserInteractionEnabled = false
+        jobTypeSegControl.isUserInteractionEnabled = false
+        jobLocationText.isUserInteractionEnabled = false
+        jobAppStatusText.isUserInteractionEnabled = false
+        jobNoteTextView.isUserInteractionEnabled = false
+        updateButton.isUserInteractionEnabled = false
+        self.updateButton.isHidden = true
+    }
+    
+    @IBAction func updateJobApp(_ sender: Any) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "JobApplication")
+        fetchRequest.predicate = NSPredicate(format: "jobapplication == %@", (savedApp?.objectId)!)
+            
+        let jobApplication = managedContext.object(with: (savedApp?.objectId)!)
+        jobApplication.setValue(jobTitleText.text, forKey: "jobTitle")
+        jobApplication.setValue(jobCompanyText.text, forKey: "jobCompany")
+        jobApplication.setValue(appliedDateText.text, forKey: "jobAppliedDate")
+        jobApplication.setValue(jobTypes[jobTypeSegControl.selectedSegmentIndex], forKey: "jobType")
+        jobApplication.setValue(jobLocationText.text, forKey: "jobLocation")
+        jobApplication.setValue(jobAppStatusText.text, forKey: "jobAppStatus")
+        jobApplication.setValue(jobNoteTextView.text, forKey: "jobNote")
+        disableEditMode()
+        let alert = UIAlertController(title: "Job Updated", message: nil, preferredStyle: .alert)
+        let okAlertAction = UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default)
+        alert.addAction(okAlertAction)
+        self.present(alert, animated: true, completion: nil)
+        // Delay the dismissal by 2 seconds
+        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: { _ in alert.dismiss(animated: true, completion: nil)})
     }
     
     @IBAction func appliedDateEditDidBegin(_ sender: UITextField) {
@@ -113,7 +152,7 @@ class JobAppDetailViewController: UIViewController, UIPickerViewDelegate, UIPick
         self.appliedDateText.text = strDate
     }
     
-    let appStatusData = [String](arrayLiteral: "Interested", "Applied", "Interviewing", "Rejected", "Job Offered")
+    let appStatusData = [String](arrayLiteral: "Interested", "Applied", "Interviewing", "Rejected", "Job Offered", "Offer Accepted", "Offer Declined")
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

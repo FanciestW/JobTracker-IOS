@@ -36,6 +36,7 @@ class AppliedListViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func getJobApplications() {
+        savedJobAppList.removeAll()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "JobApplication")
