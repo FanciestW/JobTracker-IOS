@@ -41,6 +41,12 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchResults.count
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = UIStoryboard.init(name: "JobSearch", bundle: Bundle.main).instantiateViewController(withIdentifier: "jobListingDetailViewController") as? JobListingDetailViewController
+        vc?.jobListingUrl = searchResults[indexPath.row].jobUrl;
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
 
     /*
     // MARK: - Navigation

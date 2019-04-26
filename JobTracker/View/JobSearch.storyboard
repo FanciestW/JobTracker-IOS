@@ -163,6 +163,7 @@
                     </view>
                     <connections>
                         <outlet property="resultsTableView" destination="uF9-Fv-51A" id="f4O-xP-VM7"/>
+                        <segue destination="W2z-n8-ftk" kind="show" id="Zqr-YI-ipT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xkb-XE-WeT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -172,13 +173,32 @@
         <!--Job Listing Detail View Controller-->
         <scene sceneID="g4l-uK-E4d">
             <objects>
-                <viewController id="W2z-n8-ftk" customClass="JobListingDetailViewController" customModule="JobTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="jobListingDetailViewController" id="W2z-n8-ftk" customClass="JobListingDetailViewController" customModule="JobTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jMt-Mq-iW9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fcx-B6-aEy">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PXF-z2-B3j" firstAttribute="trailing" secondItem="fcx-B6-aEy" secondAttribute="trailing" id="N23-Mg-Vrq"/>
+                            <constraint firstItem="fcx-B6-aEy" firstAttribute="top" secondItem="PXF-z2-B3j" secondAttribute="top" id="cMM-lb-k5Y"/>
+                            <constraint firstItem="PXF-z2-B3j" firstAttribute="bottom" secondItem="fcx-B6-aEy" secondAttribute="bottom" id="ix0-PX-XVf"/>
+                            <constraint firstItem="fcx-B6-aEy" firstAttribute="leading" secondItem="PXF-z2-B3j" secondAttribute="leading" id="jxo-d9-sNr"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PXF-z2-B3j"/>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="fcx-B6-aEy" id="Yvg-N2-H6Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Io-cP-AiW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
