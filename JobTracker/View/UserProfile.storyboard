@@ -101,6 +101,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="BlueGradientBegin"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="6b3-aL-YAU" firstAttribute="centerX" secondItem="k8f-1F-SSG" secondAttribute="centerX" id="3VA-Si-sh5"/>
                             <constraint firstItem="MBK-JW-QaV" firstAttribute="top" secondItem="yrP-Ij-SGU" secondAttribute="bottom" constant="15" id="Fhb-GA-di4"/>
@@ -118,6 +119,9 @@
                                 <color key="value" name="BlueGradientEnd"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="bV3-aP-KPp" appends="YES" id="vhZ-sJ-FZi"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="XJI-cc-fgz">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="eTc-yN-X2S">
@@ -129,9 +133,11 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="LogoImage" destination="6b3-aL-YAU" id="wla-4P-he7"/>
+                        <outlet property="edgeSwipeDownGesture" destination="bV3-aP-KPp" id="J62-1K-8Qt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hyB-kf-uwx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="down" id="bV3-aP-KPp"/>
             </objects>
             <point key="canvasLocation" x="3710" y="185"/>
         </scene>
@@ -159,7 +165,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" textContentType="email"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p0U-gi-3ll">
                                 <rect key="frame" x="44.666666666666657" y="643" width="325" height="50"/>
@@ -187,6 +193,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="BlueGradientBegin"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Ys2-o4-bmP" firstAttribute="top" secondItem="p0U-gi-3ll" secondAttribute="bottom" constant="20" id="Bp0-v0-7qS"/>
                             <constraint firstItem="9ic-A7-PbH" firstAttribute="centerX" secondItem="cg7-Xd-azO" secondAttribute="centerX" id="J58-m0-BsQ"/>
@@ -206,14 +213,19 @@
                                 <color key="value" name="BlueGradientEnd"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="nYS-Ku-QeF" appends="YES" id="iKZ-DA-jJy"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="8aT-fG-Erh" id="nc9-P6-Uco"/>
                         <outlet property="logoImage" destination="9ic-A7-PbH" id="142-bA-if7"/>
                         <outlet property="passwordTextField" destination="p0U-gi-3ll" id="2Tp-eu-ayZ"/>
+                        <outlet property="swipeDownGesture" destination="nYS-Ku-QeF" id="V4I-Qf-R5r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hU7-MC-jxl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="down" id="nYS-Ku-QeF"/>
             </objects>
             <point key="canvasLocation" x="4507" y="-77"/>
         </scene>
@@ -253,7 +265,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" textContentType="email"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zpg-Qy-u9o">
                                 <rect key="frame" x="44.666666666666657" y="348" width="325" height="50"/>
@@ -292,6 +304,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="BlueGradientBegin"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="OEp-dB-vSG" firstAttribute="top" secondItem="zpg-Qy-u9o" secondAttribute="bottom" constant="20" id="9YZ-MZ-K2s"/>
                             <constraint firstItem="LHV-kP-SCh" firstAttribute="centerX" secondItem="vVs-IC-fCh" secondAttribute="centerX" id="FBz-39-LiD"/>
@@ -315,6 +328,9 @@
                                 <color key="value" name="BlueGradientEnd"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="cJw-5C-Rs3" appends="YES" id="Te1-EL-HVv"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Sign Up" id="eSy-SD-WaD"/>
                     <connections>
@@ -323,9 +339,11 @@
                         <outlet property="lastNameTextField" destination="T8h-gh-3mv" id="Rnn-Bh-fOT"/>
                         <outlet property="passwordTextField" destination="zpg-Qy-u9o" id="KlD-Dq-twn"/>
                         <outlet property="retypePasswordTextField" destination="OEp-dB-vSG" id="AKe-Vg-dVZ"/>
+                        <outlet property="swipeDownGesture" destination="cJw-5C-Rs3" id="BOB-mL-lWf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fm2-TK-TBg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="down" id="cJw-5C-Rs3"/>
             </objects>
             <point key="canvasLocation" x="4499" y="597"/>
         </scene>

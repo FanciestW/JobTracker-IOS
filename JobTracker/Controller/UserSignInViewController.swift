@@ -9,14 +9,16 @@
 import UIKit
 import FirebaseAuth
 
-class UserSignInViewController: UIViewController {
+class UserSignInViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet var swipeDownGesture: UISwipeGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        swipeDownGesture.delegate = self
         logoImage.roundImage()
         self.hideKeyboardWhenTappedAround()
         
@@ -25,6 +27,11 @@ class UserSignInViewController: UIViewController {
                 self.goToUserProfile()
             }
         }
+    }
+    
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        self.navigationController?.dismiss(animated: true, completion: nil)
+        return true
     }
     
     @IBAction func btnLogInClick(_ sender: Any) {

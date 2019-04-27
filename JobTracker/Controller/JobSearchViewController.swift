@@ -9,18 +9,28 @@
 import UIKit
 import Alamofire
 
-class JobSearchViewController: UIViewController {
+class JobSearchViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var titleTextfield: UITextField!
     @IBOutlet weak var locationTextfield: UITextField!
-
+    @IBOutlet var edgePanGesture: UIScreenEdgePanGestureRecognizer!
+    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var searchLoadingIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        edgePanGesture.delegate = self
         // Do any additional setup after loading the view.
     }
     
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        onSearchPress(edgePanGesture)
+        return true
+    }
+    
     @IBAction func onSearchPress(_ sender: Any) {
+        searchLoadingIndicator.startAnimating()
         let jobTitle: String = self.titleTextfield.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         let location: String = self.locationTextfield.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         let requestUrl: String = "https://jobs.github.com/positions.json?description=\(jobTitle.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!)&location=\(location.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!)"
@@ -35,6 +45,7 @@ class JobSearchViewController: UIViewController {
             vc?.searchQuery = requestUrl
             vc?.searchResults = jobList
             self.navigationController?.pushViewController(vc!, animated: true)
+            self.searchLoadingIndicator.stopAnimating()
         }
     }
     

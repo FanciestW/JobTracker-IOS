@@ -132,6 +132,7 @@
                             </textView>
                         </subviews>
                         <color key="backgroundColor" name="BlueGradientBegin"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="b2B-Px-lLC" firstAttribute="leading" secondItem="yHv-NS-e2e" secondAttribute="leading" constant="20" id="0gj-OF-r1v"/>
                             <constraint firstItem="gj3-1F-5ZD" firstAttribute="top" secondItem="S2t-yr-5lh" secondAttribute="bottom" constant="20" id="3Xx-tl-3cK"/>
@@ -178,6 +179,9 @@
                                 <color key="value" name="BlueGradientEnd"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Rx0-yV-8NW" appends="YES" id="55i-vZ-M86"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="New Job" image="AddIcon" landscapeImage="AddIcon" id="6MS-OK-GXo"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -189,9 +193,11 @@
                         <outlet property="jobNoteTextView" destination="iTx-Tc-pEg" id="yId-Xw-eqi"/>
                         <outlet property="jobTitleTextField" destination="gj3-1F-5ZD" id="A9x-ck-qpe"/>
                         <outlet property="jobTypeSegControl" destination="o1l-cv-RjG" id="nRa-lB-tYP"/>
+                        <outlet property="panDownGesture" destination="Rx0-yV-8NW" id="M2G-aM-s31"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i6P-ht-i5k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="down" id="Rx0-yV-8NW"/>
             </objects>
             <point key="canvasLocation" x="133.33333333333334" y="153.34821428571428"/>
         </scene>

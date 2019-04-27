@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import Firebase
 
-class AddJobApplicationViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class AddJobApplicationViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var jobTitleTextField: UITextField!
     @IBOutlet weak var companyTextField: UITextField!
@@ -19,9 +19,11 @@ class AddJobApplicationViewController: UIViewController, UIPickerViewDelegate, U
     @IBOutlet weak var jobAppStatusTextField: UITextField!
     @IBOutlet weak var jobNoteTextView: UITextView!
     @IBOutlet weak var jobTypeSegControl: UISegmentedControl!
+    @IBOutlet var panDownGesture: UISwipeGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        panDownGesture.delegate = self
         jobTypeSegControl.layer.cornerRadius = 4.0
         jobNoteTextView.layer.cornerRadius = 4.0
         self.hideKeyboardWhenTappedAround()
@@ -35,6 +37,11 @@ class AddJobApplicationViewController: UIViewController, UIPickerViewDelegate, U
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         saveJobApplicationValues()
+    }
+    
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        self.dismissKeyboard()
+        return true
     }
     
     @IBAction func btnAddJobApplicationClick(_ sender: Any) {

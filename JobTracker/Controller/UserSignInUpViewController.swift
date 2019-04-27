@@ -9,13 +9,20 @@
 import UIKit
 import FirebaseAuth
 
-class UserSignInUpViewController: UIViewController {
+class UserSignInUpViewController: UIViewController, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var LogoImage: UIImageView!
+    @IBOutlet var edgeSwipeDownGesture: UISwipeGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         LogoImage.roundImage()
+        edgeSwipeDownGesture.delegate = self
+    }
+    
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        cancelSignInUp(gestureRecognizer)
+        return true
     }
     
     override func viewDidAppear(_ animated: Bool) {
