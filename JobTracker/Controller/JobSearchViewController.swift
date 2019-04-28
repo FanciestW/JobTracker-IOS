@@ -35,7 +35,7 @@ class JobSearchViewController: UIViewController, UIGestureRecognizerDelegate {
         var location: String = self.locationTextfield.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         jobTitle = jobTitle.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
         location = location.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
-        let requestUrl: String = "https://jobs.github.com/positions.json?description=\(jobTitle)!)&location=\(location)!)"
+        let requestUrl: String = "https://jobs.github.com/positions.json?description=\(jobTitle)&location=\(location)"
         Alamofire.request(requestUrl).responseJSON { response in
             var jobList: [JobListing] = []
             if let json = response.result.value {

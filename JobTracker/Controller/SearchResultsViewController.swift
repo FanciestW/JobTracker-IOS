@@ -15,19 +15,31 @@ class JobListingCell: UITableViewCell {
     @IBOutlet weak var jobCompanyLabel: UILabel!
 }
 
-class SearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate {
 
     var searchQuery: String = ""
     var searchResults: [JobListing] = []
 
     @IBOutlet weak var resultsTableView: UITableView!
-
+    @IBOutlet var longHoldGesture: UILongPressGestureRecognizer!
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        longHoldGesture.delegate = self
         self.title = "Search Results"
         resultsTableView.dataSource = self
         resultsTableView.delegate = self
         // Do any additional setup after loading the view.
+    }
+    
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        let touchPoint = gestureRecognizer.location(in: self.tableView)
+        if let indexPath = self.tableView.indexPathForRow(at: touchPoint) {
+            print("Location: \(indexPath)")
+        }
+        print("test true")
+        return true
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

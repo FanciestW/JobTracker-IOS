@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class JobAppDetailViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class JobAppDetailViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIGestureRecognizerDelegate {
 
     var savedApp: SavedApplication?
     let jobTypes = ["Full Time", "Part Time", "Internship", "Contract"]
@@ -22,11 +22,13 @@ class JobAppDetailViewController: UIViewController, UIPickerViewDelegate, UIPick
     @IBOutlet weak var jobAppStatusText: UITextField!
     @IBOutlet weak var jobNoteTextView: UITextView!
     @IBOutlet weak var updateButton: UIButton!
-
+    @IBOutlet var swipeDownGesture: UISwipeGestureRecognizer!
+    
     var backButton: UIBarButtonItem?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        swipeDownGesture.delegate = self
         jobTypeSegControl.layer.cornerRadius = 4
         jobNoteTextView.layer.cornerRadius = 4.0
         self.hideKeyboardWhenTappedAround()
@@ -62,6 +64,11 @@ class JobAppDetailViewController: UIViewController, UIPickerViewDelegate, UIPick
         self.navigationItem.rightBarButtonItem = editButton
     }
 
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        self.dismissKeyboard()
+        return true
+    }
+    
     @objc func editButtonAction(sender: UIBarButtonItem) {
         enableEditMode()
     }
@@ -82,6 +89,7 @@ class JobAppDetailViewController: UIViewController, UIPickerViewDelegate, UIPick
         jobLocationText.isUserInteractionEnabled = true
         jobAppStatusText.isUserInteractionEnabled = true
         jobNoteTextView.isUserInteractionEnabled = true
+        jobNoteTextView.isEditable = true
         updateButton.isUserInteractionEnabled = true
     }
 
@@ -104,6 +112,7 @@ class JobAppDetailViewController: UIViewController, UIPickerViewDelegate, UIPick
         jobLocationText.isUserInteractionEnabled = false
         jobAppStatusText.isUserInteractionEnabled = false
         jobNoteTextView.isUserInteractionEnabled = false
+        jobNoteTextView.isEditable = false
         updateButton.isUserInteractionEnabled = false
         self.updateButton.isHidden = true
     }
