@@ -4,6 +4,7 @@ disabled_rules: # rule identifiers to exclude from running
   - control_statement
   - force_cast
   - force_try
+  - switch_case_alignment
 opt_in_rules: # some rules are only opt-in
   - empty_count
   # Find all the available rules by running:
@@ -27,6 +28,7 @@ analyzer_rules: # Rules run by `swiftlint analyze` (experimental)
 # rules that have both warning and error levels, can set just the warning level
 # implicitly
 line_length: 200
+ignores_comments: true
 # they can set both implicitly with an array
 type_body_length:
   - 300 # warning

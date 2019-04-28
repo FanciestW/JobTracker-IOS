@@ -56,13 +56,10 @@ class AddJobApplicationViewController: UIViewController, UIPickerViewDelegate, U
         switch jobTypeSegControl.selectedSegmentIndex {
             case 0:
                 jobType = "Full Time"
-                break
             case 1:
                 jobType = "Part Time"
-                break
             case 2:
                 jobType = "Internship"
-                break
             case 3:
                 jobType = "Contract"
             default:

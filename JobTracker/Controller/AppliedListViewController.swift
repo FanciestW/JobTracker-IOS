@@ -85,7 +85,7 @@ class AppliedListViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewController = UIStoryboard.init(name: "AppliedList", bundle: Bundle.main).instantiateViewController(withIdentifier: "jobAppDetailViewController") as? JobAppDetailViewController
         viewController?.savedApp = savedJobAppList[indexPath.row]
-        self.navigationController?.pushViewController(vc!, animated: true)
+        self.navigationController?.pushViewController(viewController!, animated: true)
     }
 
     /*

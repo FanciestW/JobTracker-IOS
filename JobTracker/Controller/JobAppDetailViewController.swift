@@ -38,20 +38,16 @@ class JobAppDetailViewController: UIViewController, UIPickerViewDelegate, UIPick
         jobCompanyText.text = savedApp!.company
         appliedDateText.text = DateFormatter.localizedString(from: (savedApp?.appliedDate)!, dateStyle: DateFormatter.Style.long, timeStyle: DateFormatter.Style.none)
         switch savedApp!.jobType {
-        case "Full Time":
-            jobTypeSegControl.selectedSegmentIndex = 0
-            break
-        case "Part Time":
-            jobTypeSegControl.selectedSegmentIndex = 1
-            break
-        case "Internship":
-            jobTypeSegControl.selectedSegmentIndex = 2
-            break
-        case "Contract":
-            jobTypeSegControl.selectedSegmentIndex = 3
-            break
-        default:
-            jobTypeSegControl.selectedSegmentIndex = 0
+            case "Full Time":
+                jobTypeSegControl.selectedSegmentIndex = 0
+            case "Part Time":
+                jobTypeSegControl.selectedSegmentIndex = 1
+            case "Internship":
+                jobTypeSegControl.selectedSegmentIndex = 2
+            case "Contract":
+                jobTypeSegControl.selectedSegmentIndex = 3
+            default:
+                jobTypeSegControl.selectedSegmentIndex = 0
         }
         jobLocationText.text = savedApp!.location
         jobAppStatusText.text = savedApp!.appStatus

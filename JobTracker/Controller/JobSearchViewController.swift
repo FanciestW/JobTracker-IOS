@@ -33,8 +33,8 @@ class JobSearchViewController: UIViewController, UIGestureRecognizerDelegate {
         searchLoadingIndicator.startAnimating()
         var jobTitle: String = self.titleTextfield.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         var location: String = self.locationTextfield.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        jobTitle = jobTitle.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed
-        location = location.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed
+        jobTitle = jobTitle.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
+        location = location.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
         let requestUrl: String = "https://jobs.github.com/positions.json?description=\(jobTitle)!)&location=\(location)!)"
         Alamofire.request(requestUrl).responseJSON { response in
             var jobList: [JobListing] = []
@@ -43,10 +43,10 @@ class JobSearchViewController: UIViewController, UIGestureRecognizerDelegate {
                     jobList.append(JobListing(jsonDict: result as! NSDictionary))
                 }
             }
-            let vc = UIStoryboard.init(name: "JobSearch", bundle: Bundle.main).instantiateViewController(withIdentifier: "searchResultsViewController") as? SearchResultsViewController
-            vc?.searchQuery = requestUrl
-            vc?.searchResults = jobList
-            self.navigationController?.pushViewController(vc!, animated: true)
+            let viewController = UIStoryboard.init(name: "JobSearch", bundle: Bundle.main).instantiateViewController(withIdentifier: "searchResultsViewController") as? SearchResultsViewController
+            viewController?.searchQuery = requestUrl
+            viewController?.searchResults = jobList
+            self.navigationController?.pushViewController(viewController!, animated: true)
             self.searchLoadingIndicator.stopAnimating()
         }
     }
