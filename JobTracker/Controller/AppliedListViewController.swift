@@ -16,9 +16,9 @@ class JobApplicationViewCell: UITableViewCell {
 
 class AppliedListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var appliedTableView: UITableView!
-    
+
     var savedJobAppList: [SavedApplication] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         appliedTableView.dataSource = self
@@ -29,19 +29,19 @@ class AppliedListViewController: UIViewController, UITableViewDataSource, UITabl
         appliedTableView.addSubview(appliedTableView.refreshControl!) // not required when using UITableViewController
         getJobApplications()
     }
-    
+
     @objc func refreshJobs(_ refreshControl: UIRefreshControl) {
         getJobApplications()
         appliedTableView.refreshControl!.endRefreshing()
     }
-    
+
     func getJobApplications() {
         savedJobAppList.removeAll()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "JobApplication")
         request.returnsObjectsAsFaults = false
-        
+
         do {
             let result = try context.fetch(request)
             for data in result as! [NSManagedObject] {
@@ -62,30 +62,29 @@ class AppliedListViewController: UIViewController, UITableViewDataSource, UITabl
             print("Error in getting data")
         }
     }
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return savedJobAppList.count
     }
-    
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "jobApplicationCell", for: indexPath) as! JobApplicationViewCell
-        
+
         // Configure the cell...
         cell.jobApplicationLabel.text = savedJobAppList[indexPath.row].title
         cell.jobApplicationCompanyLabel.text = savedJobAppList[indexPath.row].company
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = UIStoryboard.init(name: "AppliedList", bundle: Bundle.main).instantiateViewController(withIdentifier: "jobAppDetailViewController") as? JobAppDetailViewController
-        vc?.savedApp = savedJobAppList[indexPath.row]
+        let viewController = UIStoryboard.init(name: "AppliedList", bundle: Bundle.main).instantiateViewController(withIdentifier: "jobAppDetailViewController") as? JobAppDetailViewController
+        viewController?.savedApp = savedJobAppList[indexPath.row]
         self.navigationController?.pushViewController(vc!, animated: true)
     }
 

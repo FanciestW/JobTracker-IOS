@@ -10,47 +10,47 @@ import UIKit
 import FirebaseAuth
 
 class UserSignUpViewController: UIViewController, UIGestureRecognizerDelegate {
-    
+
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var retypePasswordTextField: UITextField!
     @IBOutlet var swipeDownGesture: UISwipeGestureRecognizer!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         swipeDownGesture.delegate = self
         self.hideKeyboardWhenTappedAround()
-        
-        _ = Auth.auth().addStateDidChangeListener { (auth, user) in
+
+        _ = Auth.auth().addStateDidChangeListener { (auth, _) in
             if auth.currentUser != nil {
                 self.goToUserProfile()
             }
         }
     }
-    
+
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         self.navigationController?.dismiss(animated: true, completion: nil)
         return true
     }
-    
+
     @IBAction func btnSignUpClick(_ sender: Any) {
         if !checkFields() {
-            return;
+            return
         }
         let email: String = emailTextField.text!
         let passwd: String = passwordTextField.text!
-        Auth.auth().createUser(withEmail: email, password: passwd, completion: { user, error in
+        Auth.auth().createUser(withEmail: email, password: passwd, completion: { _, _ in
             // Handle any errors.
         })
     }
-    
+
     func checkFields() -> Bool {
         return true
         // TODO::Update to check fields.
     }
-    
+
     func goToUserProfile() {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let mainTabView: UITabBarController = mainStoryboard.instantiateViewController(withIdentifier: "mainTabBarController") as! UITabBarController

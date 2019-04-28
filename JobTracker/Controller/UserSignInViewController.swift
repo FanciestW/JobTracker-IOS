@@ -10,48 +10,48 @@ import UIKit
 import FirebaseAuth
 
 class UserSignInViewController: UIViewController, UIGestureRecognizerDelegate {
-    
+
     @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet var swipeDownGesture: UISwipeGestureRecognizer!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         swipeDownGesture.delegate = self
         logoImage.roundImage()
         self.hideKeyboardWhenTappedAround()
-        
-        _ = Auth.auth().addStateDidChangeListener { (auth, user) in
+
+        _ = Auth.auth().addStateDidChangeListener { (auth, _) in
             if auth.currentUser != nil {
                 self.goToUserProfile()
             }
         }
     }
-    
+
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         self.navigationController?.dismiss(animated: true, completion: nil)
         return true
     }
-    
+
     @IBAction func btnLogInClick(_ sender: Any) {
-        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { [weak self] user, error in
+        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { [weak self] _, error in
             if (error != nil) {
                 print("Login Error")
                 print(error ?? "Error")
             }
             guard let strongSelf = self else { return }
-            
+
         }
     }
-    
+
     func goToUserProfile() {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let mainTabView: UITabBarController = mainStoryboard.instantiateViewController(withIdentifier: "mainTabBarController") as! UITabBarController
         mainTabView.selectedIndex = 3 // Show the user profile tab.
         self.present(mainTabView, animated: true, completion: nil)
     }
-    
+
     /*
     // MARK: - Navigation
 

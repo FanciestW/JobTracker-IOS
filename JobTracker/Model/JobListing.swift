@@ -17,7 +17,7 @@ class JobListing: NSObject {
     var jobUrl: String = ""
     var jobLocation: String = ""
     var jobDescription: String = ""
-    
+
     init(jsonDict: NSDictionary) {
         self.jobTitle = jsonDict["title"] as? String ?? ""
         self.jobType = jsonDict["type"] as? String ?? ""

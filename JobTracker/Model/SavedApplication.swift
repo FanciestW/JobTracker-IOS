@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class SavedApplication: NSObject {
-    
+
     var objectId: NSManagedObjectID?
     var title: String
     var company: String
@@ -19,7 +19,7 @@ class SavedApplication: NSObject {
     var appliedDate: Date
     var appStatus: String
     var note: String
-    
+
     init(title:String, company:String, jobType:String, loc:String, date:String, status:String, note:String) {
         self.title = title
         self.company = company
@@ -28,9 +28,9 @@ class SavedApplication: NSObject {
         self.appliedDate = DateFormatter().date(from: date) ?? Date()
         self.appStatus = status
         self.note = note
-        
+
     }
-    
+
     init(title:String, company:String, jobType:String, loc:String, date:Date, status:String, note:String) {
         self.title = title
         self.company = company

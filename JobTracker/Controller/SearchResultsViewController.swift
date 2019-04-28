@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Alamofire 
+import Alamofire
 
 class JobListingCell: UITableViewCell {
     @IBOutlet weak var jobTitleLabel: UILabel!
@@ -16,12 +16,12 @@ class JobListingCell: UITableViewCell {
 }
 
 class SearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
+
     var searchQuery: String = ""
     var searchResults: [JobListing] = []
-    
+
     @IBOutlet weak var resultsTableView: UITableView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Search Results"
@@ -29,23 +29,28 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         resultsTableView.delegate = self
         // Do any additional setup after loading the view.
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "jobListingCell", for: indexPath) as! JobListingCell
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: "jobListingCell",
+            for: indexPath) as! JobListingCell
         cell.jobTitleLabel?.text = searchResults[indexPath.row].jobTitle
         cell.jobCompanyLabel?.text = searchResults[indexPath.row].jobCompany
         cell.jobLocationLabel?.text = searchResults[indexPath.row].jobLocation
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchResults.count
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = UIStoryboard.init(name: "JobSearch", bundle: Bundle.main).instantiateViewController(withIdentifier: "jobListingDetailViewController") as? JobListingDetailViewController
-        vc?.jobListingUrl = searchResults[indexPath.row].jobUrl;
-        self.navigationController?.pushViewController(vc!, animated: true)
+        let viewController = UIStoryboard.init(
+            name: "JobSearch",
+            bundle: Bundle.main
+        ).instantiateViewController(withIdentifier: "jobListingDetailViewController") as? JobListingDetailViewController
+        viewController?.jobListingUrl = searchResults[indexPath.row].jobUrl
+        self.navigationController?.pushViewController(viewController!, animated: true)
     }
 
     /*

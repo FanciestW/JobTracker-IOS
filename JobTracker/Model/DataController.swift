@@ -11,17 +11,17 @@ import CoreData
 
 class DataController {
     let persistentContainer:NSPersistentContainer
-    
+
     var viewContext:NSManagedObjectContext {
         return persistentContainer.viewContext
     }
-    
+
     init(modelName:String) {
         persistentContainer = NSPersistentContainer(name: modelName)
     }
-    
+
     func load() {
-        persistentContainer.loadPersistentStores { storeDescription, error in
+        persistentContainer.loadPersistentStores { _, error in
             guard error == nil else {
                 fatalError(error!.localizedDescription)
             }

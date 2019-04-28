@@ -12,16 +12,16 @@ import WebKit
 class JobListingDetailViewController: UIViewController, WKNavigationDelegate {
 
     @IBOutlet weak var webView: WKWebView!
-    var selectedJob: JobListing? = nil
+    var selectedJob: JobListing?
     var jobListingUrl = "jobs.github.com"
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         webView.navigationDelegate = self
         webView.load(URLRequest(url: URL(string: jobListingUrl)!))
         // Do any additional setup after loading the view.
     }
-    
+
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         title = webView.title
     }

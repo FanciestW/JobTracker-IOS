@@ -10,15 +10,13 @@ import UIKit
 import FirebaseAuth
 
 class MainTabBarViewController: UITabBarController, UITabBarControllerDelegate {
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
         // Do any additional setup after loading the view.
     }
-    
+
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if viewController is UserProfileViewController {
             if Auth.auth().currentUser == nil {
@@ -34,7 +32,7 @@ class MainTabBarViewController: UITabBarController, UITabBarControllerDelegate {
             return true
         }
     }
-    
+
     /*
     // MARK: - Navigation
 

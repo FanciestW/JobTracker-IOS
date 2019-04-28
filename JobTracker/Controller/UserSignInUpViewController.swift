@@ -11,30 +11,30 @@ import FirebaseAuth
 
 class UserSignInUpViewController: UIViewController, UIGestureRecognizerDelegate {
 
-    @IBOutlet weak var LogoImage: UIImageView!
+    @IBOutlet weak var logoName: UIImageView!
     @IBOutlet var edgeSwipeDownGesture: UISwipeGestureRecognizer!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        LogoImage.roundImage()
+        logoName.roundImage()
         edgeSwipeDownGesture.delegate = self
     }
-    
+
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         cancelSignInUp(gestureRecognizer)
         return true
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         if Auth.auth().currentUser != nil {
             self.performSegue(withIdentifier: "UserAlreadyLoggedIn", sender: nil)
         }
     }
-    
+
     @IBAction func cancelSignInUp(_ sender: Any) {
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
-    
+
     /*
     // MARK: - Navigation
 

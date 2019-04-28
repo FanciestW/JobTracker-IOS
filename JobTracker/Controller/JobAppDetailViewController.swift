@@ -11,9 +11,9 @@ import CoreData
 
 class JobAppDetailViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    var savedApp: SavedApplication? = nil
+    var savedApp: SavedApplication?
     let jobTypes = ["Full Time", "Part Time", "Internship", "Contract"]
-    
+
     @IBOutlet weak var jobTitleText: UITextField!
     @IBOutlet weak var jobCompanyText: UITextField!
     @IBOutlet weak var appliedDateText: UITextField!
@@ -22,9 +22,9 @@ class JobAppDetailViewController: UIViewController, UIPickerViewDelegate, UIPick
     @IBOutlet weak var jobAppStatusText: UITextField!
     @IBOutlet weak var jobNoteTextView: UITextView!
     @IBOutlet weak var updateButton: UIButton!
-    
-    var backButton: UIBarButtonItem? = nil
-    
+
+    var backButton: UIBarButtonItem?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         jobTypeSegControl.layer.cornerRadius = 4
@@ -56,7 +56,7 @@ class JobAppDetailViewController: UIViewController, UIPickerViewDelegate, UIPick
         jobLocationText.text = savedApp!.location
         jobAppStatusText.text = savedApp!.appStatus
         jobNoteTextView.text = savedApp!.note
-        
+
         let editButton = UIBarButtonItem.init(
             title: "Edit",
             style: .done,
@@ -65,11 +65,11 @@ class JobAppDetailViewController: UIViewController, UIPickerViewDelegate, UIPick
         )
         self.navigationItem.rightBarButtonItem = editButton
     }
-    
+
     @objc func editButtonAction(sender: UIBarButtonItem) {
         enableEditMode()
     }
-    
+
     func enableEditMode() {
         let cancelButton = UIBarButtonItem.init(
             title: "Cancel",
@@ -88,11 +88,11 @@ class JobAppDetailViewController: UIViewController, UIPickerViewDelegate, UIPick
         jobNoteTextView.isUserInteractionEnabled = true
         updateButton.isUserInteractionEnabled = true
     }
-    
+
     @objc func cancelButtonAction(sender: UIBarButtonItem) {
         disableEditMode()
     }
-    
+
     func disableEditMode() {
         let editButton = UIBarButtonItem.init(
             title: "Edit",
@@ -111,15 +111,15 @@ class JobAppDetailViewController: UIViewController, UIPickerViewDelegate, UIPick
         updateButton.isUserInteractionEnabled = false
         self.updateButton.isHidden = true
     }
-    
+
     @IBAction func updateJobApp(_ sender: Any) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        
+
         let managedContext = appDelegate.persistentContainer.viewContext
-        
+
         let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "JobApplication")
         fetchRequest.predicate = NSPredicate(format: "jobapplication == %@", (savedApp?.objectId)!)
-            
+
         let jobApplication = managedContext.object(with: (savedApp?.objectId)!)
         jobApplication.setValue(jobTitleText.text, forKey: "jobTitle")
         jobApplication.setValue(jobCompanyText.text, forKey: "jobCompany")
@@ -136,14 +136,14 @@ class JobAppDetailViewController: UIViewController, UIPickerViewDelegate, UIPick
         // Delay the dismissal by 2 seconds
         Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: { _ in alert.dismiss(animated: true, completion: nil)})
     }
-    
+
     @IBAction func appliedDateEditDidBegin(_ sender: UITextField) {
         let datePickerView:UIDatePicker = UIDatePicker()
         datePickerView.datePickerMode = UIDatePicker.Mode.date
         sender.inputView = datePickerView
         datePickerView.addTarget(self, action: #selector(updateDateField), for: UIControl.Event.valueChanged)
     }
-    
+
     @objc func updateDateField() {
         let picker:UIDatePicker = self.appliedDateText.inputView as! UIDatePicker
         let dateFormatter = DateFormatter()
@@ -151,21 +151,21 @@ class JobAppDetailViewController: UIViewController, UIPickerViewDelegate, UIPick
         let strDate = dateFormatter.string(from: picker.date)
         self.appliedDateText.text = strDate
     }
-    
+
     let appStatusData = [String](arrayLiteral: "Interested", "Applied", "Interviewing", "Rejected", "Job Offered", "Offer Accepted", "Offer Declined")
-    
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return appStatusData.count
     }
-    
+
     func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return appStatusData[row]
     }
-    
+
     func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         jobAppStatusText.text = appStatusData[row]
     }
