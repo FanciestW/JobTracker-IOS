@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ghA-ab-PUF">
+    <device id="retina6_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--New Job-->
+        <scene sceneID="qDH-yX-UNN">
+            <objects>
+                <viewController id="ghA-ab-PUF" customClass="AddJobApplicationViewController" customModule="JobTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="j8a-6F-SHr" customClass="GradientBackground" customModule="JobTracker" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S2t-yr-5lh">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="New Application" id="dIM-Bw-AM7">
+                                        <barButtonItem key="rightBarButtonItem" title="Clear" id="2Tc-TD-eMY">
+                                            <connections>
+                                                <action selector="btnClearFieldsClicked:" destination="ghA-ab-PUF" id="cd8-RR-i9V"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="barPosition">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </navigationBar>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Job Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gj3-1F-5ZD">
+                                <rect key="frame" x="20" y="108" width="374" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="YD6-29-Wdb"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldEditingDidBegin:" destination="ghA-ab-PUF" eventType="editingDidBegin" id="0uX-YX-XT7"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2vz-Vw-qcG">
+                                <rect key="frame" x="20" y="158" width="374" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="nPq-Ar-uo9"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldEditingDidBegin:" destination="ghA-ab-PUF" eventType="editingDidBegin" id="JGb-6p-Kkz"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Applied Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YLn-xM-t5V">
+                                <rect key="frame" x="20" y="208" width="374" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Ar3-2c-YsB"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="appliedDateEditDidBegin:" destination="ghA-ab-PUF" eventType="editingDidBegin" id="14p-y2-lck"/>
+                                    <action selector="textFieldEditingDidBegin:" destination="ghA-ab-PUF" eventType="editingDidBegin" id="2XE-9T-FGR"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Job Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ULd-Ib-Xl6">
+                                <rect key="frame" x="20" y="308" width="374" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="BeY-Qm-31P"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldEditingDidBegin:" destination="ghA-ab-PUF" eventType="editingDidBegin" id="dE4-nm-mtr"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAj-xr-M4l">
+                                <rect key="frame" x="82" y="743" width="250" height="50"/>
+                                <color key="backgroundColor" name="NeonCarrot"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="60h-N2-yqY"/>
+                                    <constraint firstAttribute="height" constant="50" id="ASd-vp-8k1"/>
+                                </constraints>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" name="BackgroundWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnAddJobApplicationClick:" destination="ghA-ab-PUF" eventType="touchUpInside" id="s18-gW-LyT"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="o1l-cv-RjG">
+                                <rect key="frame" x="20" y="263" width="374" height="31"/>
+                                <color key="backgroundColor" name="BackgroundWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ycw-M1-GYK"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Full Time"/>
+                                    <segment title="Part Time"/>
+                                    <segment title="Internship"/>
+                                    <segment title="Contract"/>
+                                </segments>
+                            </segmentedControl>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Application Status" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b2B-Px-lLC">
+                                <rect key="frame" x="20" y="358" width="374" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="VZ5-Nh-Cq3"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldEditingDidBegin:" destination="ghA-ab-PUF" eventType="editingDidBegin" id="HSr-aZ-Cbd"/>
+                                </connections>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iTx-Tc-pEg">
+                                <rect key="frame" x="20" y="408" width="374" height="325"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" name="BlueGradientBegin"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="b2B-Px-lLC" firstAttribute="leading" secondItem="yHv-NS-e2e" secondAttribute="leading" constant="20" id="0gj-OF-r1v"/>
+                            <constraint firstItem="gj3-1F-5ZD" firstAttribute="top" secondItem="S2t-yr-5lh" secondAttribute="bottom" constant="20" id="3Xx-tl-3cK"/>
+                            <constraint firstItem="yHv-NS-e2e" firstAttribute="trailing" secondItem="gj3-1F-5ZD" secondAttribute="trailing" constant="20" id="6cK-rz-uHt"/>
+                            <constraint firstItem="YLn-xM-t5V" firstAttribute="top" secondItem="2vz-Vw-qcG" secondAttribute="bottom" constant="10" id="6gd-Bb-VqZ"/>
+                            <constraint firstItem="2vz-Vw-qcG" firstAttribute="centerX" secondItem="j8a-6F-SHr" secondAttribute="centerX" id="712-qx-5ec"/>
+                            <constraint firstItem="ULd-Ib-Xl6" firstAttribute="leading" secondItem="yHv-NS-e2e" secondAttribute="leading" constant="20" id="71U-za-XGl"/>
+                            <constraint firstItem="yHv-NS-e2e" firstAttribute="trailing" secondItem="YLn-xM-t5V" secondAttribute="trailing" constant="20" id="78G-vv-vOM"/>
+                            <constraint firstItem="b2B-Px-lLC" firstAttribute="centerX" secondItem="j8a-6F-SHr" secondAttribute="centerX" id="AHc-am-F0w"/>
+                            <constraint firstItem="yHv-NS-e2e" firstAttribute="trailing" secondItem="2vz-Vw-qcG" secondAttribute="trailing" constant="20" id="B1b-Hm-pS6"/>
+                            <constraint firstItem="yHv-NS-e2e" firstAttribute="trailing" secondItem="b2B-Px-lLC" secondAttribute="trailing" constant="20" id="BaU-Ye-O8i"/>
+                            <constraint firstItem="o1l-cv-RjG" firstAttribute="leading" secondItem="yHv-NS-e2e" secondAttribute="leading" constant="20" id="DlV-e0-HZx"/>
+                            <constraint firstItem="o1l-cv-RjG" firstAttribute="top" secondItem="YLn-xM-t5V" secondAttribute="bottom" constant="15" id="FDd-Ks-OXj"/>
+                            <constraint firstItem="yHv-NS-e2e" firstAttribute="trailing" secondItem="ULd-Ib-Xl6" secondAttribute="trailing" constant="20" id="G4j-6p-QsS"/>
+                            <constraint firstItem="2vz-Vw-qcG" firstAttribute="leading" secondItem="yHv-NS-e2e" secondAttribute="leading" constant="20" id="GDM-me-cwz"/>
+                            <constraint firstItem="b2B-Px-lLC" firstAttribute="top" secondItem="ULd-Ib-Xl6" secondAttribute="bottom" constant="10" id="Gq5-E2-UVf"/>
+                            <constraint firstItem="yHv-NS-e2e" firstAttribute="trailing" secondItem="iTx-Tc-pEg" secondAttribute="trailing" constant="20" id="QMi-rc-fLZ"/>
+                            <constraint firstItem="gj3-1F-5ZD" firstAttribute="centerX" secondItem="j8a-6F-SHr" secondAttribute="centerX" id="QT7-Kb-9Mh"/>
+                            <constraint firstItem="ULd-Ib-Xl6" firstAttribute="top" secondItem="o1l-cv-RjG" secondAttribute="bottom" constant="15" id="QjY-Dn-uoI"/>
+                            <constraint firstItem="iTx-Tc-pEg" firstAttribute="leading" secondItem="yHv-NS-e2e" secondAttribute="leading" constant="20" id="bsH-G1-TzV"/>
+                            <constraint firstItem="S2t-yr-5lh" firstAttribute="centerX" secondItem="yHv-NS-e2e" secondAttribute="centerX" id="fpZ-D5-0f9"/>
+                            <constraint firstItem="yHv-NS-e2e" firstAttribute="bottom" secondItem="yAj-xr-M4l" secondAttribute="bottom" constant="20" id="ftG-6w-QB3"/>
+                            <constraint firstItem="2vz-Vw-qcG" firstAttribute="top" secondItem="gj3-1F-5ZD" secondAttribute="bottom" constant="10" id="gAE-lm-YeZ"/>
+                            <constraint firstItem="iTx-Tc-pEg" firstAttribute="top" secondItem="b2B-Px-lLC" secondAttribute="bottom" constant="10" id="gV0-aL-wXq"/>
+                            <constraint firstItem="o1l-cv-RjG" firstAttribute="centerX" secondItem="j8a-6F-SHr" secondAttribute="centerX" id="joz-bc-idU"/>
+                            <constraint firstItem="ULd-Ib-Xl6" firstAttribute="centerX" secondItem="j8a-6F-SHr" secondAttribute="centerX" id="low-Zu-WV8"/>
+                            <constraint firstItem="YLn-xM-t5V" firstAttribute="centerX" secondItem="j8a-6F-SHr" secondAttribute="centerX" id="oXO-MK-Biy"/>
+                            <constraint firstItem="iTx-Tc-pEg" firstAttribute="centerX" secondItem="j8a-6F-SHr" secondAttribute="centerX" id="pWb-Ia-lox"/>
+                            <constraint firstItem="yAj-xr-M4l" firstAttribute="centerX" secondItem="j8a-6F-SHr" secondAttribute="centerX" id="qzl-jz-VYp"/>
+                            <constraint firstItem="S2t-yr-5lh" firstAttribute="trailing" secondItem="yHv-NS-e2e" secondAttribute="trailing" id="qzv-2a-XBr"/>
+                            <constraint firstItem="YLn-xM-t5V" firstAttribute="leading" secondItem="yHv-NS-e2e" secondAttribute="leading" constant="20" id="rBj-fm-10l"/>
+                            <constraint firstItem="yHv-NS-e2e" firstAttribute="trailing" secondItem="o1l-cv-RjG" secondAttribute="trailing" constant="20" id="st6-XW-J5u"/>
+                            <constraint firstItem="S2t-yr-5lh" firstAttribute="top" secondItem="yHv-NS-e2e" secondAttribute="top" id="teh-O4-v7n"/>
+                            <constraint firstItem="gj3-1F-5ZD" firstAttribute="leading" secondItem="yHv-NS-e2e" secondAttribute="leading" constant="20" id="wBh-K9-pfF"/>
+                            <constraint firstItem="yAj-xr-M4l" firstAttribute="top" secondItem="iTx-Tc-pEg" secondAttribute="bottom" constant="10" id="wb4-mI-XpP"/>
+                            <constraint firstItem="S2t-yr-5lh" firstAttribute="leading" secondItem="yHv-NS-e2e" secondAttribute="leading" id="yt5-Xa-OJE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yHv-NS-e2e"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="gradientColor1">
+                                <color key="value" name="BlueGradientBegin"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="gradientColor2">
+                                <color key="value" name="BlueGradientEnd"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Rx0-yV-8NW" appends="YES" id="55i-vZ-M86"/>
+                        </connections>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="New Job" image="AddIcon" landscapeImage="AddIcon" id="6MS-OK-GXo"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="appliedDateTextField" destination="YLn-xM-t5V" id="dEY-Le-nZ5"/>
+                        <outlet property="companyTextField" destination="2vz-Vw-qcG" id="cMc-om-u6v"/>
+                        <outlet property="jobAppStatusTextField" destination="b2B-Px-lLC" id="qbO-yk-mDe"/>
+                        <outlet property="jobLocationTextField" destination="ULd-Ib-Xl6" id="Z7t-gx-8Zk"/>
+                        <outlet property="jobNoteTextView" destination="iTx-Tc-pEg" id="yId-Xw-eqi"/>
+                        <outlet property="jobTitleTextField" destination="gj3-1F-5ZD" id="A9x-ck-qpe"/>
+                        <outlet property="jobTypeSegControl" destination="o1l-cv-RjG" id="nRa-lB-tYP"/>
+                        <outlet property="panDownGesture" destination="Rx0-yV-8NW" id="M2G-aM-s31"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i6P-ht-i5k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="down" id="Rx0-yV-8NW"/>
+            </objects>
+            <point key="canvasLocation" x="133.33333333333334" y="153.34821428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="AddIcon" width="21" height="21"/>
+        <namedColor name="BackgroundWhite">
+            <color red="0.97647058823529409" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BlueGradientBegin">
+            <color red="0.50588235294117645" green="0.87450980392156863" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BlueGradientEnd">
+            <color red="0.29803921568627451" green="0.32941176470588235" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="NeonCarrot">
+            <color red="1" green="0.6470588235294118" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

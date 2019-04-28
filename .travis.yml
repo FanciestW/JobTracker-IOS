@@ -1,0 +1,13 @@
+os: osx
+osx_image: xcode10.1
+language: swift
+xcode_workspace: JobTracker.xcworkspace
+xcode_destination: platform=iOS Simulator,OS=12.1,name=iPhone X
+cache:
+  - bundler
+  - cocoapods
+before_install:
+  - gem install cocoapods --pre
+  - pod install --repo-update
+script:
+  - xcodebuild -workspace JobTracker.xcworkspace -scheme JobTracker -sdk iphonesimulator12.1 -quiet
