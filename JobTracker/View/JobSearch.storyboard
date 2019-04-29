@@ -206,6 +206,7 @@
                         <outlet property="resultsTableView" destination="uF9-Fv-51A" id="f4O-xP-VM7"/>
                         <outlet property="tableView" destination="uF9-Fv-51A" id="AIg-wC-s7G"/>
                         <segue destination="W2z-n8-ftk" kind="show" id="Zqr-YI-ipT"/>
+                        <segue destination="o03-iN-V3x" kind="show" id="SbC-ce-suY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xkb-XE-WeT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -213,16 +214,30 @@
             </objects>
             <point key="canvasLocation" x="1769.5652173913045" y="129.91071428571428"/>
         </scene>
-        <!--View Controller-->
+        <!--Job Location View Controller-->
         <scene sceneID="Zka-3z-a2c">
             <objects>
-                <viewController id="o03-iN-V3x" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="jobLocationDetailViewController" id="o03-iN-V3x" customClass="JobLocationViewController" customModule="JobTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b8S-en-kKV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4EH-BF-5ie">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ie9-YJ-9ho" firstAttribute="bottom" secondItem="4EH-BF-5ie" secondAttribute="bottom" id="V01-I2-WRr"/>
+                            <constraint firstItem="Ie9-YJ-9ho" firstAttribute="trailing" secondItem="4EH-BF-5ie" secondAttribute="trailing" id="rwk-6B-3Tz"/>
+                            <constraint firstItem="4EH-BF-5ie" firstAttribute="leading" secondItem="Ie9-YJ-9ho" secondAttribute="leading" id="sNJ-e4-uY3"/>
+                            <constraint firstItem="4EH-BF-5ie" firstAttribute="top" secondItem="Ie9-YJ-9ho" secondAttribute="top" id="xEw-C3-yAr"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Ie9-YJ-9ho"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="4EH-BF-5ie" id="uoV-4q-DV1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YYb-ta-8Ts" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

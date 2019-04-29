@@ -36,9 +36,8 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         let touchPoint = gestureRecognizer.location(in: self.tableView)
         if let indexPath = self.tableView.indexPathForRow(at: touchPoint) {
-            print("Location: \(indexPath)")
+            showLocationDetailView(jobLocation: searchResults[indexPath.row].jobLocation)
         }
-        print("test true")
         return true
     }
 
@@ -57,11 +56,24 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showJobDetailView(jobUrl: searchResults[indexPath.row].jobUrl)
+    }
+    
+    func showJobDetailView(jobUrl: String) {
         let viewController = UIStoryboard.init(
             name: "JobSearch",
             bundle: Bundle.main
         ).instantiateViewController(withIdentifier: "jobListingDetailViewController") as? JobListingDetailViewController
-        viewController?.jobListingUrl = searchResults[indexPath.row].jobUrl
+        viewController?.jobListingUrl = jobUrl
+        self.navigationController?.pushViewController(viewController!, animated: true)
+    }
+    
+    func showLocationDetailView(jobLocation: String) {
+        let viewController = UIStoryboard.init(
+            name: "JobSearch",
+            bundle: Bundle.main
+            ).instantiateViewController(withIdentifier: "jobLocationDetailViewController") as? JobLocationViewController
+        viewController?.jobLocation = jobLocation
         self.navigationController?.pushViewController(viewController!, animated: true)
     }
 
