@@ -132,8 +132,8 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="LogoImage" destination="6b3-aL-YAU" id="wla-4P-he7"/>
                         <outlet property="edgeSwipeDownGesture" destination="bV3-aP-KPp" id="J62-1K-8Qt"/>
+                        <outlet property="logoName" destination="6b3-aL-YAU" id="MQw-sq-DlF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hyB-kf-uwx" userLabel="First Responder" sceneMemberID="firstResponder"/>

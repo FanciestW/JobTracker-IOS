@@ -12,6 +12,7 @@ import CoreData
 class JobApplicationViewCell: UITableViewCell {
     @IBOutlet weak var jobApplicationLabel: UILabel!
     @IBOutlet weak var jobApplicationCompanyLabel: UILabel!
+    @IBOutlet weak var jobApplicationLocation: UILabel!
 }
 
 class AppliedListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -30,7 +31,6 @@ class AppliedListViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("test")
         getJobApplications()
     }
 
@@ -83,6 +83,7 @@ class AppliedListViewController: UIViewController, UITableViewDataSource, UITabl
         // Configure the cell...
         cell.jobApplicationLabel.text = savedJobAppList[indexPath.row].title
         cell.jobApplicationCompanyLabel.text = savedJobAppList[indexPath.row].company
+        cell.jobApplicationLocation.text = savedJobAppList[indexPath.row].location
         return cell
     }
 
