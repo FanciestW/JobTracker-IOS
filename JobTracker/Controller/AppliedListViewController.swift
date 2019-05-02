@@ -29,7 +29,7 @@ class AppliedListViewController: UIViewController, UITableViewDataSource, UITabl
         appliedTableView.refreshControl!.addTarget(self, action: #selector(refreshJobs(_:)), for: .valueChanged)
         appliedTableView.addSubview(appliedTableView.refreshControl!) // not required when using UITableViewController
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         getJobApplications()
     }

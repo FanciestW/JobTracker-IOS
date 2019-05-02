@@ -11,12 +11,12 @@ import MapKit
 import CoreLocation
 
 class JobLocationViewController: UIViewController, CLLocationManagerDelegate {
-    
+
     @IBOutlet weak var mapView: MKMapView!
-    
+
     var jobLocation = ""
     let locationManager = CLLocationManager()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = jobLocation
@@ -28,10 +28,10 @@ class JobLocationViewController: UIViewController, CLLocationManagerDelegate {
         }
         // Do any additional setup after loading the view.
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
+
         let geocoder = CLGeocoder()
         if geocoder.isGeocoding { geocoder.cancelGeocode() }
         geocoder.geocodeAddressString(jobLocation, completionHandler: { placemarks, error in
@@ -47,17 +47,16 @@ class JobLocationViewController: UIViewController, CLLocationManagerDelegate {
             self.mapView.addAnnotation(mapAnnotation)
         })
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let region = MKCoordinateRegion(center: (locations.last?.coordinate)!, latitudinalMeters: 200, longitudinalMeters: 200)
         mapView.setRegion(region, animated: true)
-        
+
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Error: \(error.localizedDescription)")
     }
-    
 
     /*
     // MARK: - Navigation

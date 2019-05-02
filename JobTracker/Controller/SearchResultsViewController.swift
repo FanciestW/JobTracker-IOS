@@ -23,7 +23,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var resultsTableView: UITableView!
     @IBOutlet var longHoldGesture: UILongPressGestureRecognizer!
     @IBOutlet weak var tableView: UITableView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         longHoldGesture.delegate = self
@@ -32,7 +32,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         resultsTableView.delegate = self
         // Do any additional setup after loading the view.
     }
-    
+
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         let touchPoint = gestureRecognizer.location(in: self.tableView)
         if let indexPath = self.tableView.indexPathForRow(at: touchPoint) {
@@ -58,7 +58,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         showJobDetailView(jobUrl: searchResults[indexPath.row].jobUrl)
     }
-    
+
     func showJobDetailView(jobUrl: String) {
         let viewController = UIStoryboard.init(
             name: "JobSearch",
@@ -67,7 +67,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         viewController?.jobListingUrl = jobUrl
         self.navigationController?.pushViewController(viewController!, animated: true)
     }
-    
+
     func showLocationDetailView(jobLocation: String) {
         let viewController = UIStoryboard.init(
             name: "JobSearch",

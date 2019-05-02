@@ -25,9 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         dataController.load()
         return true
     }
-    
-    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask
-    {
+
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         return self.restrictRotation
     }
 

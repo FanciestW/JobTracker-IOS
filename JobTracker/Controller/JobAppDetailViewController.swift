@@ -23,7 +23,7 @@ class JobAppDetailViewController: UIViewController, UIPickerViewDelegate, UIPick
     @IBOutlet weak var jobNoteTextView: UITextView!
     @IBOutlet weak var updateButton: UIButton!
     @IBOutlet var swipeDownGesture: UISwipeGestureRecognizer!
-    
+
     var backButton: UIBarButtonItem?
 
     override func viewDidLoad() {
@@ -68,7 +68,7 @@ class JobAppDetailViewController: UIViewController, UIPickerViewDelegate, UIPick
         self.dismissKeyboard()
         return true
     }
-    
+
     @objc func editButtonAction(sender: UIBarButtonItem) {
         enableEditMode()
     }
