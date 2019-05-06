@@ -12,6 +12,7 @@ import Firebase
 
 class AddJobApplicationViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIGestureRecognizerDelegate {
 
+    @IBOutlet var gradientBackground: GradientBackground!
     @IBOutlet weak var jobTitleTextField: UITextField!
     @IBOutlet weak var companyTextField: UITextField!
     @IBOutlet weak var appliedDateTextField: UITextField!
@@ -23,6 +24,7 @@ class AddJobApplicationViewController: UIViewController, UIPickerViewDelegate, U
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.gradientBackground.gradientFrame = self.view.frame
         panDownGesture.delegate = self
         jobTypeSegControl.layer.cornerRadius = 4.0
         jobNoteTextView.layer.cornerRadius = 4.0
@@ -32,6 +34,9 @@ class AddJobApplicationViewController: UIViewController, UIPickerViewDelegate, U
         let statusPicker = UIPickerView()
         statusPicker.delegate = self
         jobAppStatusTextField.inputView = statusPicker
+    }
+    
+    override func viewDidLayoutSubviews() {
     }
 
     override func viewWillDisappear(_ animated: Bool) {

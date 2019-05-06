@@ -81,6 +81,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="edgePanGesture" destination="GIc-97-Gxf" id="EqM-1f-RjR"/>
+                        <outlet property="gradientBackground" destination="UwM-7J-Vd3" id="oxu-cK-haP"/>
                         <outlet property="locationTextfield" destination="2U4-uB-WPc" id="tM4-oA-fAo"/>
                         <outlet property="searchButton" destination="bqf-0f-z0s" id="kgK-nR-NxY"/>
                         <outlet property="searchLoadingIndicator" destination="KZc-Zi-YoA" id="XuB-yy-Js5"/>

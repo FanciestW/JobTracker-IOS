@@ -273,6 +273,7 @@
                     </view>
                     <connections>
                         <outlet property="appliedDateText" destination="dcT-xt-Yws" id="hd6-Mx-8zI"/>
+                        <outlet property="gradientBackground" destination="eXC-7G-8L6" id="VFa-Or-Nc9"/>
                         <outlet property="jobAppStatusText" destination="t2C-AF-dUS" id="XzW-WH-wHm"/>
                         <outlet property="jobCompanyText" destination="eE5-zx-EeZ" id="PXV-zA-PBZ"/>
                         <outlet property="jobLocationText" destination="2Pm-5A-wpj" id="7bu-gH-osl"/>

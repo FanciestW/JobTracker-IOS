@@ -14,7 +14,7 @@
         <scene sceneID="qDH-yX-UNN">
             <objects>
                 <viewController id="ghA-ab-PUF" customClass="AddJobApplicationViewController" customModule="JobTracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="j8a-6F-SHr" customClass="GradientBackground" customModule="JobTracker" customModuleProvider="target">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="j8a-6F-SHr" customClass="GradientBackground" customModule="JobTracker" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -188,6 +188,7 @@
                     <connections>
                         <outlet property="appliedDateTextField" destination="YLn-xM-t5V" id="dEY-Le-nZ5"/>
                         <outlet property="companyTextField" destination="2vz-Vw-qcG" id="cMc-om-u6v"/>
+                        <outlet property="gradientBackground" destination="j8a-6F-SHr" id="rsO-lf-mjL"/>
                         <outlet property="jobAppStatusTextField" destination="b2B-Px-lLC" id="qbO-yk-mDe"/>
                         <outlet property="jobLocationTextField" destination="ULd-Ib-Xl6" id="Z7t-gx-8Zk"/>
                         <outlet property="jobNoteTextView" destination="iTx-Tc-pEg" id="yId-Xw-eqi"/>

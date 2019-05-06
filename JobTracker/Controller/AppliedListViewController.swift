@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 
 class JobApplicationViewCell: UITableViewCell {
+    
     @IBOutlet weak var jobApplicationLabel: UILabel!
     @IBOutlet weak var jobApplicationCompanyLabel: UILabel!
     @IBOutlet weak var jobApplicationLocation: UILabel!

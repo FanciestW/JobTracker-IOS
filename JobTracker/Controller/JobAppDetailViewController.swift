@@ -14,6 +14,7 @@ class JobAppDetailViewController: UIViewController, UIPickerViewDelegate, UIPick
     var savedApp: SavedApplication?
     let jobTypes = ["Full Time", "Part Time", "Internship", "Contract"]
 
+    @IBOutlet var gradientBackground: GradientBackground!
     @IBOutlet weak var jobTitleText: UITextField!
     @IBOutlet weak var jobCompanyText: UITextField!
     @IBOutlet weak var appliedDateText: UITextField!
@@ -28,6 +29,7 @@ class JobAppDetailViewController: UIViewController, UIPickerViewDelegate, UIPick
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.gradientBackground.gradientFrame = self.view.frame
         swipeDownGesture.delegate = self
         jobTypeSegControl.layer.cornerRadius = 4
         jobNoteTextView.layer.cornerRadius = 4.0

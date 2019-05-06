@@ -11,6 +11,7 @@ import Alamofire
 
 class JobSearchViewController: UIViewController, UIGestureRecognizerDelegate {
 
+    @IBOutlet var gradientBackground: GradientBackground!
     @IBOutlet weak var titleTextfield: UITextField!
     @IBOutlet weak var locationTextfield: UITextField!
     @IBOutlet var edgePanGesture: UIScreenEdgePanGestureRecognizer!
@@ -19,6 +20,7 @@ class JobSearchViewController: UIViewController, UIGestureRecognizerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.gradientBackground.gradientFrame = self.view.frame
         self.hideKeyboardWhenTappedAround()
         edgePanGesture.delegate = self
         // Do any additional setup after loading the view.
