@@ -10,8 +10,10 @@ import UIKit
 import CoreData
 
 class JobApplicationViewCell: UITableViewCell {
+    
     @IBOutlet weak var jobApplicationLabel: UILabel!
     @IBOutlet weak var jobApplicationCompanyLabel: UILabel!
+    @IBOutlet weak var jobApplicationLocation: UILabel!
 }
 
 class AppliedListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -27,6 +29,9 @@ class AppliedListViewController: UIViewController, UITableViewDataSource, UITabl
         appliedTableView.refreshControl!.attributedTitle = NSAttributedString(string: "Pull to refresh")
         appliedTableView.refreshControl!.addTarget(self, action: #selector(refreshJobs(_:)), for: .valueChanged)
         appliedTableView.addSubview(appliedTableView.refreshControl!) // not required when using UITableViewController
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
         getJobApplications()
     }
 
@@ -79,6 +84,7 @@ class AppliedListViewController: UIViewController, UITableViewDataSource, UITabl
         // Configure the cell...
         cell.jobApplicationLabel.text = savedJobAppList[indexPath.row].title
         cell.jobApplicationCompanyLabel.text = savedJobAppList[indexPath.row].company
+        cell.jobApplicationLocation.text = savedJobAppList[indexPath.row].location
         return cell
     }
 

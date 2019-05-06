@@ -11,11 +11,13 @@ import FirebaseAuth
 
 class UserSignInUpViewController: UIViewController, UIGestureRecognizerDelegate {
 
+    @IBOutlet var gradientBackground: GradientBackground!
     @IBOutlet weak var logoName: UIImageView!
     @IBOutlet var edgeSwipeDownGesture: UISwipeGestureRecognizer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.gradientBackground.gradientFrame = self.view.frame
         logoName.roundImage()
         edgeSwipeDownGesture.delegate = self
     }

@@ -11,6 +11,7 @@ import FirebaseAuth
 
 class UserSignInViewController: UIViewController, UIGestureRecognizerDelegate {
 
+    @IBOutlet var gradientBackground: GradientBackground!
     @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -18,6 +19,7 @@ class UserSignInViewController: UIViewController, UIGestureRecognizerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.gradientBackground.gradientFrame = self.view.frame
         swipeDownGesture.delegate = self
         logoImage.roundImage()
         self.hideKeyboardWhenTappedAround()

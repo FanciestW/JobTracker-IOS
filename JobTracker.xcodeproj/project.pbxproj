@@ -18,6 +18,7 @@
 		3D4951B5221A589C00EAB7DA /* JobSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4951B4221A589C00EAB7DA /* JobSearch.storyboard */; };
 		3D4CB55D2264018700715AB8 /* JobListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4CB55C2264018700715AB8 /* JobListing.swift */; };
 		3D500788222C4D89000C1BBB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D500787222C4D89000C1BBB /* Images.xcassets */; };
+		3D5BB94722765FC5000A2931 /* JobLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5BB94622765FC5000A2931 /* JobLocationViewController.swift */; };
 		3D8A8932223EBD5C00B6C196 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8A8931223EBD5C00B6C196 /* DataController.swift */; };
 		3DAA25A3226D5FFC001D9FE1 /* SavedApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA25A2226D5FFC001D9FE1 /* SavedApplication.swift */; };
 		3DAF78DA2218B06C00AFF52A /* AddJobApplication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DAF78D92218B06C00AFF52A /* AddJobApplication.storyboard */; };
@@ -51,6 +52,7 @@
 		3D4951B4221A589C00EAB7DA /* JobSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JobSearch.storyboard; sourceTree = "<group>"; };
 		3D4CB55C2264018700715AB8 /* JobListing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListing.swift; sourceTree = "<group>"; };
 		3D500787222C4D89000C1BBB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3D5BB94622765FC5000A2931 /* JobLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobLocationViewController.swift; sourceTree = "<group>"; };
 		3D8A8931223EBD5C00B6C196 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		3DAA25A2226D5FFC001D9FE1 /* SavedApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedApplication.swift; sourceTree = "<group>"; };
 		3DAF78D92218B06C00AFF52A /* AddJobApplication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddJobApplication.storyboard; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				3DF82F80222B145C00355EC0 /* UserSignInUpViewController.swift */,
 				3D4890F6226966CA00D260A4 /* JobListingDetailViewController.swift */,
 				3DEC32DD226E57DB004D10D1 /* JobAppDetailViewController.swift */,
+				3D5BB94622765FC5000A2931 /* JobLocationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				3D1583A62228EBEB00430303 /* JobSearchViewController.swift in Sources */,
 				3D0F30A32235804400A55474 /* UserSignInViewController.swift in Sources */,
 				3DC58A4F225C0C0600485BF9 /* MainTabBarViewController.swift in Sources */,
+				3D5BB94722765FC5000A2931 /* JobLocationViewController.swift in Sources */,
 				3D15839B2228A2A900430303 /* UserProfileViewController.swift in Sources */,
 				3D1583AA2228FE7000430303 /* GradientBackground.swift in Sources */,
 				3DEC32DE226E57DB004D10D1 /* JobAppDetailViewController.swift in Sources */,

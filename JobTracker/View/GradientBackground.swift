@@ -32,13 +32,19 @@ class GradientBackground: UIView {
             self.setGradient()
         }
     }
+    
+    @IBInspectable var gradientFrame: CGRect = CGRect(x: 0, y: 0, width: 100, height: 100) {
+        didSet {
+            self.setGradient()
+        }
+    }
 
     private func setGradient() {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [self.gradientColor1.cgColor, self.gradientColor2.cgColor]
         gradientLayer.startPoint = self.gradientStartPoint
         gradientLayer.endPoint = self.gradientEndPoint
-        gradientLayer.frame = self.bounds
+        gradientLayer.frame = self.gradientFrame
         if let topLayer = self.layer.sublayers?.first, topLayer is CAGradientLayer {
             topLayer.removeFromSuperlayer()
         }

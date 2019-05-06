@@ -15,19 +15,30 @@ class JobListingCell: UITableViewCell {
     @IBOutlet weak var jobCompanyLabel: UILabel!
 }
 
-class SearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate {
 
     var searchQuery: String = ""
     var searchResults: [JobListing] = []
 
     @IBOutlet weak var resultsTableView: UITableView!
+    @IBOutlet var longHoldGesture: UILongPressGestureRecognizer!
+    @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        longHoldGesture.delegate = self
         self.title = "Search Results"
         resultsTableView.dataSource = self
         resultsTableView.delegate = self
         // Do any additional setup after loading the view.
+    }
+
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        let touchPoint = gestureRecognizer.location(in: self.tableView)
+        if let indexPath = self.tableView.indexPathForRow(at: touchPoint) {
+            showLocationDetailView(jobLocation: searchResults[indexPath.row].jobLocation)
+        }
+        return true
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -45,11 +56,24 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showJobDetailView(jobUrl: searchResults[indexPath.row].jobUrl)
+    }
+
+    func showJobDetailView(jobUrl: String) {
         let viewController = UIStoryboard.init(
             name: "JobSearch",
             bundle: Bundle.main
         ).instantiateViewController(withIdentifier: "jobListingDetailViewController") as? JobListingDetailViewController
-        viewController?.jobListingUrl = searchResults[indexPath.row].jobUrl
+        viewController?.jobListingUrl = jobUrl
+        self.navigationController?.pushViewController(viewController!, animated: true)
+    }
+
+    func showLocationDetailView(jobLocation: String) {
+        let viewController = UIStoryboard.init(
+            name: "JobSearch",
+            bundle: Bundle.main
+            ).instantiateViewController(withIdentifier: "jobLocationDetailViewController") as? JobLocationViewController
+        viewController?.jobLocation = jobLocation
         self.navigationController?.pushViewController(viewController!, animated: true)
     }
 
