@@ -34,7 +34,8 @@ class JobListingDetailViewController: UIViewController, WKNavigationDelegate {
     }
     
     @objc func shareButtonAction(sender: UIBarButtonItem) {
-        // TODO::Finished sharing feature.
+        let activityViewController = UIActivityViewController(activityItems: [self.jobListingUrl], applicationActivities: nil)
+        self.present(activityViewController, animated: true, completion: nil)
     }
 
     /*
