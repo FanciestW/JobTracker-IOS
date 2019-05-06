@@ -242,7 +242,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YYb-ta-8Ts" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2595.6521739130435" y="-91.071428571428569"/>
+            <point key="canvasLocation" x="2590" y="-193"/>
         </scene>
         <!--Job Listing Detail View Controller-->
         <scene sceneID="g4l-uK-E4d">
@@ -276,7 +276,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Io-cP-AiW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2591" y="587"/>
+            <point key="canvasLocation" x="2590" y="469"/>
         </scene>
         <!--Job Search-->
         <scene sceneID="vTm-jw-xJk">
