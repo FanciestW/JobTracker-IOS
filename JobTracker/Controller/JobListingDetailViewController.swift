@@ -19,11 +19,22 @@ class JobListingDetailViewController: UIViewController, WKNavigationDelegate {
         super.viewDidLoad()
         webView.navigationDelegate = self
         webView.load(URLRequest(url: URL(string: jobListingUrl)!))
-        // Do any additional setup after loading the view.
+        
+        let shareButton = UIBarButtonItem.init(
+            title: "Share",
+            style: .done,
+            target: self,
+            action: #selector(shareButtonAction(sender:))
+        )
+        self.navigationItem.rightBarButtonItem = shareButton
     }
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         title = webView.title
+    }
+    
+    @objc func shareButtonAction(sender: UIBarButtonItem) {
+        // TODO::Finished sharing feature.
     }
 
     /*

@@ -31,7 +31,6 @@ class JobLocationViewController: UIViewController, CLLocationManagerDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-
         let geocoder = CLGeocoder()
         if geocoder.isGeocoding { geocoder.cancelGeocode() }
         geocoder.geocodeAddressString(jobLocation, completionHandler: { placemarks, error in
