@@ -111,9 +111,8 @@ class JobAppDetailViewController: UIViewController, UIPickerViewDelegate, UIPick
         jobCompanyText.isUserInteractionEnabled = false
         appliedDateText.isUserInteractionEnabled = false
         jobTypeSegControl.isUserInteractionEnabled = false
-        jobLocationText.isUserInteractionEnabled = false
-        jobAppStatusText.isUserInteractionEnabled = false
-        jobNoteTextView.isUserInteractionEnabled = false
+        jobLocationText.isEnabled = false
+        jobAppStatusText.isEnabled = false
         jobNoteTextView.isEditable = false
         updateButton.isUserInteractionEnabled = false
         self.updateButton.isHidden = true
